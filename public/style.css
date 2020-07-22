@@ -105,8 +105,9 @@
 }
 
 .list{
-  align-self: stretch;
-  flex: 1;
+  /* align-self: stretch; */
+  height:calc(100vh - 100px);
+  /* flex: 1; */
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -120,6 +121,23 @@
 
 .list>.item:hover{
   background: rgba(255,255,255,0.15);
+}
+
+.layers-list{
+
+  padding-bottom: 300px;
+}
+
+.insert-box.hide{
+  display: none;
+}
+
+.insert-box{
+  width:100%;
+  padding:16px;
+  text-align:center;
+  background:#cc737346;
+  color:white;
 }
 
 .section-title{
