@@ -1,9 +1,13 @@
 (function(){
   var toolbox_lib = {
+    color: {title: "Color"},
+    select: {title: "Selection Cut"},
     curves_func: {title: "Curves Function"},
-    filter: {title:"Filter Tool"}
+    filter: {title:"Filter Tool"},
+    const: {title:"Constant"},
+    if_condition: {title: "If Condition"}
   }
-  var toolbox = ["curves_func","filter"].map(e=>{
+  var toolbox = ["color","select","curves_func","filter","const","if_condition"].map(e=>{
     return {
       title: toolbox_lib[e].title,
       id:e
@@ -29,6 +33,13 @@
         cancelDefault(e);
         showInsertBox(true);
       });
+
+      $(layers_dom).dblclick(e=>{
+        // console.log(e);
+        // console.log($(e.currentTarget))
+        if(!$(e.currentTarget).hasClass("layers-list"))
+          alert("This is not clickable");
+      });
     });
   }
 
@@ -50,7 +61,7 @@
 
     layers_dom.innerHTML = layers.reduce((acc, cur,index)=>{
       console.log(cur.id.replace("toolbox-",""));
-      return acc+`<li class="item layer-item editable-unregistered draggable-unregistered" draggable="true" id="toolbox-${cur.id}" key="${index}">ƒ - ${toolbox_lib[cur.id.replace(/(toolbox-)+/g,"")].title}</li>`;
+      return acc+`<li class="item layer-item editable-unregistered draggable-unregistered arrow" draggable="true" id="toolbox-${cur.id}" key="${index}">ƒ - ${toolbox_lib[cur.id.replace(/(toolbox-)+/g,"")].title}</li>`;
     }, "");
 
     console.log("updated");
@@ -75,9 +86,14 @@
 
         var obj = JSON.parse(id);
 
-        var temp = layers[e.target.getAttribute("key")];
-        layers[e.target.getAttribute("key")] = layers[obj.index];
-        layers[obj.index] = temp;
+        var temp = layers.splice(obj.index,1)[0];
+        if (e.target.getAttribute("key") < obj.index) {
+          layers.splice(e.target.getAttribute("key"), 0, temp);
+        }else{
+          layers.splice(e.target.getAttribute("key"), 0, temp);
+        }
+        // layers[obj.index].
+        // layers[obj.index] = temp;
 
         console.log(layers[obj.index]);
         console.log(layers[e.target.getAttribute("key")])
