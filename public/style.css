@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.menu-bar{
+  height: 30px;
+  display:flex;
+  align-items: center;
+  /* border-bottom:rgba(255,255,255,0.65) solid 1px ; */
+  box-sizing: border-box;
+}
+
+.button{
+  background:black;
+  outline: none;
+  border:none;
+  color:white;
+  padding: 0 16px;
+  line-height: 30px;
+  /* transition: background 0.15s; */
+  font-size: 15px;
+  font-weight: 100;
+  cursor: pointer;
+  /* text-transform: uppercase; */
+}
+
+.button:hover{
+  background: rgba(255,255,255,0.25);
+  outline: none;
+  border:none;
+}
+
+.button:focus{
+  background: rgba(255,255,255,0.15);
+  outline: none;
+  border:none;
+}
+.menu-list{
+  display: none;
+  position: absolute;
+  background: black;
+  border:1px solid rgba(255,255,255,0.35);
+  color:white;
+  font-size: 14px;
+  min-width: 100px;
+}
+.button:hover ~ .menu-list{
+  display: block;
+}
+.menu-list:hover{
+  display: block;
+}
+.menu-list:focus{
+  display: none;
+}
+
+.menu-list>.item{
+  cursor: pointer;
+  padding:8px;
+  padding-left: 16px;
+}
+.menu-list>.item:hover{
+  background: rgba(255,255,255, 0.35);
+}
+
+.menu-list>.split{
+  height:1px;
+  background:rgba(255,255,255,0.35);
+}
+.shortcut{
+  color: rgba(255,255,255,0.65);
+  float: right;
+  margin-left: 16px;
+}
+
+
+.parent{
+  height: calc(100vh - 30px);
+  display: grid;
+  grid-template-columns: minmax(150px, 17%) 1px minmax(150px, 17%) 1px 1fr;
+  padding: 0;
+  margin: 0;
+  /* height: calc(100% - 30px); */
+}
+
+.sidebar {
+  /* height: 100vh; */
+  /* font-size: 2rem; */
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+}
+
+.parent>.split{
+  background: rgba(255,255,255,0.65);
+  box-sizing: border-box;
+  margin:0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.list{
+  align-self: stretch;
+  flex: 1;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list>.item{
+  padding: 8px 16px;
+  width: 100%;
+  color: white;
+}
+
+.list>.item:hover{
+  background: rgba(255,255,255,0.15);
+}
+
+.section-title{
+  color: white;
+  margin: 0;
+  padding: 16px;
+
+  font-size: 16px;
+  font-weight: 300;
+}
+
+body {
+  font-family: system-ui, serif;
+  background: black;
+  margin: 0;
+
+  display:flex;
+  flex-flow: column;
+}
