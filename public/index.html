@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media processor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="menu-bar">
+    <span class="menu-list-container">
+      <button class="button">
+        MediaProcessor
+      </button>
+      <div class="menu-list">
+
+        <div class="item">About</div>
+        <div class="item">Settings <span class="shortcut">⌘,</span></div>
+        <div class="split"></div>
+        <div class="item">Quit <span class="shortcut">⌘Q</span></div>
+
+      </div>
+    </span>
+    <span class="menu-list-container">
+      <button class="button">
+        File
+      </button>
+      <div class="menu-list">
+
+        <div class="item">New <span class="shortcut">⌘N</span></div>
+        <div class="item">Clone</div>
+        <div class="split"></div>
+        <div class="item">Open <span class="shortcut">⌘O</span></div>
+        <div class="item">Save <span class="shortcut">⌘S</span></div>
+        <div class="item">Save as <span class="shortcut">⌘⇧S</span></div>
+
+      </div>
+    </span>
+
+    <span class="menu-list-container">
+      <button class="button">
+        Edit
+      </button>
+      <div class="menu-list">
+        <div class="item">Copy<span class="shortcut">⌘C</span></div>
+        <div class="item">Cut<span class="shortcut">⌘X</span></div>
+        <div class="item">Paste<span class="shortcut">⌘V</span></div>
+        <div class="split"></div>
+        <div class="item">Undo <span class="shortcut">⌘Z</span></div>
+        <div class="item">Redo <span class="shortcut">⌘⇧Z</span></div>
+      </div>
+    </span>
+  </div>
+  <div class="parent">
+    <div class="sidebar">
+      <h2 class="section-title">TOOLBOX</h2>
+      <div class="list">
+        <div class="item" draggable="true">ƒ - Function</div>
+      </div>
+    </div>
+
+    <div class="split"></div>
+
+    <div class="sidebar">
+      <h2 class="section-title">LAYERS</h2>
+      <div class="list"></div>
+    </div>
+
+    <div class="split"></div>
+
+    <div class="content">
+      <h2 class="section-title">PREVIEW</h2>
+    </div>
+  </div>
+
+</body>
+
+<script src="./index.js"></script>
+
+</html>
