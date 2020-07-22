@@ -5,6 +5,46 @@
     }
   };
 
+  var menus = [
+    {type: "menu", title: "MediaProcessor", menu:[
+      {type:"itme",title: "About"},
+      {type:"item", title: "Settings"},
+      {type:"split"},
+      {type:"item", title:"quit"}
+    ]},
+    {type:"menu", title: "File",menu:[
+      {type:"itme",title: "New"},
+      {type:"itme",title: "Clone"},
+      {type:"split"},
+      {type:"itme",title: "Open"},
+      {type:"itme",title: "Save"},
+      {type:"itme",title: "Save as"}
+    ]},
+    {type:"menu", title: "Edit",menu:[
+      {type:"itme",title: "Copy"},
+      {type:"itme",title: "Cut"},
+      {type:"itme",title: "Paste"},
+      {type:"split"},
+      {type:"itme",title: "Undo"},
+      {type:"itme",title: "Redo"}
+    ]}
+  ];
+
+  function gen_menu(menu){
+    menu.reduce((acc, cur)=>{
+      return acc+html(cur);
+    },"");
+
+    function html(obj){
+      if(obj.type == "menu"){
+        return `<span class="menu-list-container"><button class="button">
+        ${obj.title}
+      </button><div class="menu-list">${gen_menu(obj.menu)}</div></span>`
+      }else if(obj.type == "item"){
+      }
+    }
+  }
+
   function menu_init(){
     var menus = document.querySelectorAll(".menu-list-container");
     for(var index in menus){
@@ -45,7 +85,7 @@
   }
 
   window.addEventListener("load", ()=>{
-    menu_init();
+    // menu_init();
   })
   
 })();
