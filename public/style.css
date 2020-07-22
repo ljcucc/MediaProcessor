@@ -79,7 +79,7 @@
 .parent{
   height: calc(100vh - 30px);
   display: grid;
-  grid-template-columns: minmax(150px, 17%) 1px minmax(150px, 17%) 1px 1fr;
+  grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr;
   padding: 0;
   margin: 0;
   /* height: calc(100% - 30px); */
@@ -124,8 +124,27 @@
 }
 
 .layers-list{
-
   padding-bottom: 300px;
+}
+
+.layers-list>.split{
+  height:1px;
+  background:rgba(255,255,255,0.35);
+}
+
+.layers-list>.arrow::after{
+  content: "↓";
+  display:block;
+  color:white;
+  text-align:left;
+  margin-left:32px;
+  font-size:24px;
+
+  /* margin-left:-64px; */
+}
+
+.layer-item:focus{
+  background:rgba(255,255,255,0.35);
 }
 
 .insert-box.hide{
@@ -156,4 +175,43 @@ body {
 
   display:flex;
   flex-flow: column;
+}
+
+.dialog-container.hide{
+  display:none;
+}
+
+.dialog-container{
+  background:rgba(255,255,255,0.15);
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+
+  z-index: 1000;
+
+  backdrop-filter: blur(50px);
+
+  display: grid;
+  place-items: center;
+}
+
+.dialog{
+  min-width: 500px;
+  min-height: 350px;
+  background: black;
+  border: 1px solid rgba(255,255,255,0.65);
+}
+
+.dialog>.close{
+  float:right;
+  fill: white;
+  padding: 8px;
+  /* border-radius: 50%; */
+  box-sizing:border-box;
+}
+
+.dialog>.close:hover{
+  background:rgba(255,255,255,0.35);
 }
