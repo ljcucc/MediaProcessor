@@ -10,7 +10,7 @@
 
 <body>
   <div class="menu-bar">
-    <span class="menu-list-container">
+    <!-- <span class="menu-list-container">
       <button class="button">
         MediaProcessor
       </button>
@@ -51,13 +51,13 @@
         <div class="item">Undo <span class="shortcut">⌘Z</span></div>
         <div class="item">Redo <span class="shortcut">⌘⇧Z</span></div>
       </div>
-    </span>
+    </span> -->
   </div>
   <div class="parent">
     <div class="sidebar">
       <h2 class="section-title">TOOLBOX</h2>
-      <div class="list">
-        <div class="item" draggable="true">ƒ - Function</div>
+      <div class="list toolbox-list">
+        
       </div>
     </div>
 
@@ -65,7 +65,8 @@
 
     <div class="sidebar">
       <h2 class="section-title">LAYERS</h2>
-      <div class="list"></div>
+      <ol class="list layers-list editable-unregistered" id="layers_list">
+      </ol>
     </div>
 
     <div class="split"></div>
@@ -77,6 +78,8 @@
 
 </body>
 
-<script src="./menu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./src/menu.js"></script>
+<script src="./src/toolbox.js"></script>
 
 </html>
