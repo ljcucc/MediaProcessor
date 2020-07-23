@@ -252,3 +252,20 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,.65);
 }
+
+.dui{
+  padding: 8px;
+}
+
+.dui-text{
+  color:white;
+}
+
+.dui-center{
+  display: grid;
+  place-items: center;
+}
+
+ol{
+  margin:0;
+}
