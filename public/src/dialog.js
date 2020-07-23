@@ -16,6 +16,8 @@
     $(".dialog-container").fadeIn(150);
   }
 
+  var events = [];
+
   var duiBuilder = {
     column: (data)=>{
       return `<div class="dui-column-container"> ${
@@ -40,7 +42,7 @@
     },
     selector: (data)=>{
       return `
-        <select class="dui-selector">
+        <select class="dui-selector" id="${data.uuid}">
           <option>${data.default}</option>
           ${
             data.list.reduce((acc,cur)=>{
@@ -51,7 +53,7 @@
       `;
     },
     button: (data)=>{
-      return `<button class="dui-button">${data.text}</button>`
+      return `<button class="dui-button" id="${data.uuid}">${data.text}</button>`
     },
     codeeditor: (data)=>{
       return `<textarea class="dui-codeeditor"></textarea>`
@@ -62,11 +64,36 @@
     if(callback){
       callback(duiBuilder[layout.type](layout));
       // add Events...
+      registerEvents();
     }else if(layout){
       return duiBuilder[layout.type](layout)
     }
     return "";
     
+  }
+
+  var duiEventRegister = {
+    selector: (id, events)=>{
+      console.log(id, events);
+      if(events?.onStart)
+        events.onStart($("#"+id));
+      if(events?.onChoose) 
+        $(id).change(()=>events.onChoose($("#"+id)));
+    },
+    button: (id, events)=>{
+      if(events?.onPressed)
+        $("#"+id).click(e=>events.onPressed(e))
+    }
+  }
+
+  function registerEvents(){
+    console.log(events);
+    while(events.length != 0){
+      var event = events.pop();
+      if(event.type in duiEventRegister)
+        duiEventRegister[event.type](event.id, event.callback);
+      // if(event)
+    }
   }
 
   window.showDialog = showDialog;
@@ -108,17 +135,32 @@
       }
     },
     Selector: (data)=>{
+      var uuid = uuidv4();
+
+      addEvents(uuid, "selector", {
+        onStart: data?.onStart || null,
+        onChoose: data?.onChoose || null
+      });
+
       return {
         type: "selector",
         default: data?.default || "(Default)",
-        list: data?.list || [["foo", "Foo"], ["bar", "Bar"]]
+        list: data?.list || [["foo", "Foo"], ["bar", "Bar"]],
+        uuid
       }
     },
     Button: (text, data)=>{
+      var uuid = uuidv4();
+
+      addEvents(uuid, "button", {
+        onPressed: data?.onPressed || null
+      })
+
       return {
         type: "button",
         text,
-        data
+        data,
+        uuid
       }
     },
     CodeEditor: (data)=>{
@@ -126,5 +168,20 @@
         type: "codeeditor"
       }
     }
+  };
+
+  function addEvents(id, type, callback){
+    events.push({
+      id,
+      type,
+      callback
+    });
+  }
+
+  function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 })();
