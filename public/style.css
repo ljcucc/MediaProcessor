@@ -312,6 +312,7 @@ body {
   font-size: 16px;
   min-width: 100px;
   margin-block-end: 8px;
+  text-transform: uppercase;
 }
 
 .dui-button:hover{
@@ -358,4 +359,12 @@ ol{
   font-size: 18px;
   margin: 16px;
   font-weight: 500;
+}
+
+.preview-home{
+  cursor: pointer;
+}
+
+.preview-home:hover{
+  text-decoration:underline;
 }
