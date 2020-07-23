@@ -153,7 +153,7 @@
   }
 
   function propertyUIBuilder(e){ //dblclick
-    if(e.altKey) return;
+    if(e.altKey || e.ctrlKey) return;
     if($(e.currentTarget).hasClass("layers-list")) return;
 
     var obj = (JSON.parse(decodeURI($(e.target).attr("data"))));
@@ -188,7 +188,7 @@
 
   function sourceCodeUIBuilder(e){
     { //dblclick
-      if(!e.altKey) return;
+      if(!e.altKey && !e.ctrlKey) return;
       if(!$(e.currentTarget).hasClass("layers-list"))
       showDialog({
         title: "Builder Source Code",
