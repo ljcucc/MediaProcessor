@@ -1,7 +1,9 @@
 (function(){
   let menu_commands = {
     about: ()=>{
-      showDialog();
+      showDialog({
+        title: "About"
+      });
       // alert("MediaProcessor:\n - version: alpha 0.1.0\n - author: ljcucc on Github");
     },
     quit: ()=>{
@@ -81,16 +83,4 @@
     menu_init();
   })
   
-})();
-
-function showDialog(){
-  $(".dialog-container").fadeIn(150);
-}
-
-(()=>{
-  window.addEventListener("load",()=>{
-    $(".dialog>.close").click(()=>{
-      $(".dialog-container").fadeOut(150);
-    })
-  })
 })();
