@@ -7,3 +7,11 @@ function EditLayer(data){
       });
     }
 }
+
+window.addEventListener("load",e=>{
+  $(".preview-home").click(()=>{
+    $(".preview-container").html("");
+    $(".preview-title").text("");
+    $(".preview>.title").text(" ");
+  })
+})
