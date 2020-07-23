@@ -4,7 +4,16 @@
       showDialog({
         title: "About",
         layout: dui.Center({
-          child:dui.Text("This app is made by @ljcucc\n you can find more things about him on github.")})
+          child:dui.Column({child:[
+            dui.Text("This app is made by @ljcucc\n you can find more things about him on github."),
+            dui.Button("Github", {
+              onPressed: ()=> window.open("https://ljcucc.github.io/MediaProcessor/")
+            }),
+            dui.Button("Blog", {
+              onPressed: ()=> window.open("https://ljcucc.blogspot.com")
+            })
+          ]})
+        })
       });
       // alert("MediaProcessor:\n - version: alpha 0.1.0\n - author: ljcucc on Github");
     },
