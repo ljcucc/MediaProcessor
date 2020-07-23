@@ -200,6 +200,13 @@ body {
 .dialog{
   min-width: 500px;
   min-height: 350px;
+
+  max-width: 700px;
+  max-height: 500px;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
   background: black;
   border: 1px solid rgba(255,255,255,0.65);
 }
@@ -222,4 +229,26 @@ body {
   text-align: center;
   font-size: 18px;
   margin: 16px 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  background: black;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.35); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.65);
 }
