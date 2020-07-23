@@ -93,27 +93,35 @@
     console.log(e);
     showInsertBox(false);
 
+    var obj = JSON.parse(id);
+
     try{
-      if(e.target.id == "layers_list" && !("index" in JSON.parse(id))){
+      if(e.currentTarget.id == "layers_list" && ("new" in obj && obj.new)){
         console.log("add after");
-        layers.push(JSON.parse(id));
+        obj.new = false;
+        layers.push(obj);
         rerenderering();
-      }else if(e.target.classList.contains("layer-item")) {
+      }else if(e.currentTarget.classList.contains("layer-item") && ("new" in obj && !obj.new)) {
+        var placeIndex = e.target.getAttribute("key");
         console.log("insert mode");
 
-        var obj = JSON.parse(id);
-
         var temp = layers.splice(obj.index,1)[0];
-        if (e.target.getAttribute("key") < obj.index) {
-          layers.splice(e.target.getAttribute("key"), 0, temp);
-        }else{
-          layers.splice(e.target.getAttribute("key"), 0, temp);
-        }
-        // layers[obj.index].
-        // layers[obj.index] = temp;
+        // if (placeIndex < obj.index) {
+        //   layers.splice(placeIndex, 0, temp);
+        // }else{
+        //   layers.splice(placeIndex, 0, temp);
+        // }
+        layers.splice(placeIndex, 0, temp);
 
         console.log(layers[obj.index]);
-        console.log(layers[e.target.getAttribute("key")])
+        console.log(layers[placeIndex])
+
+        rerenderering();
+      }else{
+        var placeIndex = e.target.getAttribute("key");
+
+        obj.new = false;
+        layers.splice(placeIndex,0,obj);
 
         rerenderering();
       }
@@ -133,15 +141,18 @@
     console.log(e);
     if(e.target.classList.contains("toolbox-item")){
       e.dataTransfer.setData('text/plain', JSON.stringify({
-        id:e.target.id
+        id:e.target.id,
+        new:true
       }));
     }
     if(e.target.classList.contains("layer-item")){
       e.dataTransfer.setData('text/plain', JSON.stringify({
         id:e.target.id,
-        index: e.target.getAttribute("key")
+        index: e.target.getAttribute("key"),
+        new: false
       }));
     }
+    
     
   }
 
