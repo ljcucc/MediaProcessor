@@ -52,6 +52,9 @@
     },
     button: (data)=>{
       return `<button class="dui-button">${data.text}</button>`
+    },
+    codeeditor: (data)=>{
+      return `<textarea class="dui-codeeditor"></textarea>`
     }
   };
 
@@ -59,14 +62,16 @@
     if(callback){
       callback(duiBuilder[layout.type](layout));
       // add Events...
-    }else{
+    }else if(layout){
       return duiBuilder[layout.type](layout)
     }
+    return "";
     
   }
 
   window.showDialog = showDialog;
   window.dui = {
+    getDialogUI,
     Column: (data)=>{
       return {
         type:"column",
@@ -114,6 +119,11 @@
         type: "button",
         text,
         data
+      }
+    },
+    CodeEditor: (data)=>{
+      return {
+        type: "codeeditor"
       }
     }
   }
