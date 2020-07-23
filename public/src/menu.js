@@ -17,6 +17,7 @@
     {type: "menu", title: "MediaProcessor", menu:[
       {type:"item",title: "About", id:"about"},
       {type:"item", title: "Settings", id:"settings", bind:"C-,"},
+      {type:"item", title: "Project Settings", id:"project_settings", bind:"C-F"},
       {type:"split"},
       {type:"item", title:"Quit", id:"quit", bind:"C-q"}
     ]},
@@ -43,7 +44,10 @@
       {type:"item",title: "Toggle Builder Editor", id:"toggle_build_editor"},
     ]},
     {type: "menu", title:"Support", menu:[
-      {type:"item",title: "Help", id:"help", bind:"C-h"}
+      {type:"item",title: "Help", id:"help", bind:"C-h"},
+      {type:"split"},
+      {type:"item",title: "Tutorials", id:"tutorials"},
+      {type:"item",title: "Credit", id:"credit"}
     ]}
   ];
 
