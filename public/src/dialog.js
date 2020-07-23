@@ -8,8 +8,9 @@
   function showDialog(data){
     $(".dialog>.title").text((data && "title" in data)?data.title: "Dialog");
     if(data && "layout" in data){
-      var duiContainer  = getDialogUI(data.layout);
-      $(".dialog>.dui").html(duiContainer.html);
+      getDialogUI(data.layout, duiContainer=>{
+        $(".dialog>.dui").html(duiContainer);
+      });      
     }
     
     $(".dialog-container").fadeIn(150);
@@ -17,16 +18,30 @@
 
   var duiBuilder = {
     column: (data)=>{
-      return data.child.reduce((acc, cur)=>{
-        return acc + `<div class="dui-textbody">${cur}</div>`
-      },"");
+      return `<div class="dui-column-container"> ${
+        data.child.reduce((acc, cur)=>{
+          return acc + `<div class="dui-column">${getDialogUI(cur)}</div>`
+        },"")
+      }</div`;
+    },
+    text: (data)=>{
+      var text = $(`<div class="dui-text"></div>`);
+      text.text(data.text);
+      return `<div class="dui-text">${text.html().replace(/\n/g, "<br>")}</div>`
+    },
+    center: (data)=>{
+      return `<div class="dui-center">${getDialogUI(data.child)}</div>`
     }
-  }
+  };
 
-  function getDialogUI(layout){
-    return {
-      html:duiBuilder[layout.type](layout)
-    };
+  function getDialogUI(layout, callback){
+    if(callback){
+      callback(duiBuilder[layout.type](layout));
+      // add Events...
+    }else{
+      return duiBuilder[layout.type](layout)
+    }
+    
   }
 
   window.showDialog = showDialog;
@@ -37,12 +52,18 @@
         child: data.child
       };
     },
-    Text: (data)=>{
+    Text: (text, data)=>{
       return {
         type:"text",
-        text: data.text,
+        text,
         other: data
       };
+    },
+    Center: (data)=>{
+      return{
+        type: "center",
+        child: data.child
+      }
     }
   }
 })();
