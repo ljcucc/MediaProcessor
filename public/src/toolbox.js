@@ -38,7 +38,10 @@
         // console.log(e);
         // console.log($(e.currentTarget))
         if(!$(e.currentTarget).hasClass("layers-list"))
-          alert("This is not clickable");
+        showDialog({
+          title: "Toolbox error",
+          layout: dui.Center({child:dui.Text("This layer can't be edit")})
+        })
       });
     });
   }
