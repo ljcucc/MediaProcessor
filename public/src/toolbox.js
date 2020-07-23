@@ -117,7 +117,7 @@
         console.log(layers[placeIndex])
 
         rerenderering();
-      }else{
+      }else if(("new" in obj && obj.new)){
         var placeIndex = e.target.getAttribute("key");
 
         obj.new = false;
