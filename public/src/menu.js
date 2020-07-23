@@ -41,6 +41,7 @@
       {type:"item",title: "Zoom in", id:"zoom_in", bind:"C-+"},
       {type:"item",title: "Zoom out", id:"zoom_out", bind:"C--"},
       {type:"split"},
+      {type:"item",title: "Reload Preview", id:"reload_preview", bind:"C-r"},
       {type:"item",title: "Toggle Builder Editor", id:"toggle_build_editor"},
     ]},
     {type: "menu", title:"Support", menu:[
