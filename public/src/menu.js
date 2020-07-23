@@ -10,7 +10,8 @@
     },
     quit: ()=>{
       alert("You can't quit");
-    }
+    },
+    reload_preview
   };
 
   let menus = [
