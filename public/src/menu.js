@@ -8,10 +8,25 @@
       });
       // alert("MediaProcessor:\n - version: alpha 0.1.0\n - author: ljcucc on Github");
     },
+    settings:()=>{
+      showDialog({
+        title: "Settings",
+        layout: dui.Text("Sorry, Settings is not available right now. Try again later")
+      });
+    },
     quit: ()=>{
       alert("You can't quit");
     },
-    reload_preview
+    credit: ()=>{
+      showDialog({
+        title: "Credit",
+        layout: dui.Text(" - jQuery-3.x.x - MIT License\n - Power Editing Core - MIT License")
+      });
+    },
+    reload_preview,
+    offical_website:()=>{
+      window.open("https://ljcucc.github.io/MediaProcessor");
+    }
   };
 
   let menus = [
@@ -45,12 +60,21 @@
       {type:"item",title: "Reload Preview", id:"reload_preview", bind:"C-r"},
       {type:"item",title: "Toggle Builder Editor", id:"toggle_build_editor"},
     ]},
+    {type:"menu", title:"Extensions", menu:[
+      {type:"item",title: "Online Install Extensions", id:"view_online_ext"},
+      {type:"item",title: "Manage Installed Extensions", id:"view_installed_ext"},
+      {type:"item",title: "Edit Extensions Path", id:"add_ext_path"},
+      {type:"split"},
+      {type:"item",title: "Extensions Console", id:"pec_repl_lite"},
+      {type:"item",title: "Connect to REPL Console", id:"connect_2_repl_console"},
+    ]},
     {type: "menu", title:"Support", menu:[
       {type:"item",title: "Help", id:"help", bind:"C-h"},
       {type:"split"},
       {type:"item",title: "Tutorials", id:"tutorials"},
-      {type:"item",title: "Credit", id:"credit"}
-    ]}
+      {type:"item",title: "Credit", id:"credit"},
+      {type:"item",title: "Offical Website", id:"offical_website"},
+    ]},
   ];
 
   function gen_menu(menu){
