@@ -8,10 +8,12 @@ function EditLayer(data){
     }
 }
 
+function reload_preview(){
+  $(".preview-container").html("");
+  $(".preview-title").text("");
+  $(".preview>.title").text(" ");
+}
+
 window.addEventListener("load",e=>{
-  $(".preview-home").click(()=>{
-    $(".preview-container").html("");
-    $(".preview-title").text("");
-    $(".preview>.title").text(" ");
-  })
+  $(".preview-home").click(reload_preview)
 })
