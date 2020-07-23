@@ -35,20 +35,38 @@
         showInsertBox(true);
       });
 
-      $(layers_dom).dblclick(e=>{ //dblclick
+      $(layers_dom).click(e=>{ //dblclick
+        if(e.altKey) return;
         if(!$(e.currentTarget).hasClass("layers-list"))
         EditLayer({
-          title: "Edit builder",
+          title: " ",
           layout: dui.Padding({
             left: 10,
             child:dui.Column({child:[
               dui.Selector({
                 list:toolbox.map(item=>[[item.id], [item.title]])
               }),
-
-              dui.Text("This is Builder Editor, which allows you to change the builder of the layers or edit the source code of builder to customize function. click [Edit Code] to edit the builder source code."),
               dui.Button("Learn More"),
               dui.Button("Edit Code"),
+            ]}) //Column
+          }) //Padding
+        })// showDialog
+      });
+
+      $(layers_dom).click(e=>{ //dblclick
+        if(!e.altKey) return;
+        if(!$(e.currentTarget).hasClass("layers-list"))
+        showDialog({
+          title: "Builder Source Code",
+          layout: dui.Padding({
+            left: 10,
+            child:dui.Column({child:[
+              dui.Text("This is Builder Editor, which allows you to change the builder of the layers or edit the source code of builder to customize function. click [Edit Code] to edit the builder source code."),
+              dui.Button("Learn More"),
+              dui.Text("\n\nDefault builder:"),
+              dui.Selector({
+                list:toolbox.map(item=>[[item.id], [item.title]])
+              }),
 
               dui.CodeEditor(),
               dui.Button("Done"),
