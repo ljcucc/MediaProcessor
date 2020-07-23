@@ -191,7 +191,7 @@ body {
 
   z-index: 1000;
 
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(10px);
 
   display: grid;
   place-items: center;
@@ -257,13 +257,62 @@ body {
   padding: 8px;
 }
 
+.dui>*{
+  margin-block-end: 8px;
+}
+
 .dui-text{
   color:white;
+  margin-block-end: 8px;
 }
 
 .dui-center{
   display: grid;
   place-items: center;
+}
+
+.dui-textfield{
+  outline: none;
+  border:1px solid white;
+  color:white;
+  box-sizing: border-box; 
+  background: black;
+  padding: 8px;
+  font-size: 16px;
+  min-width: 300px;
+  margin-block-end: 8px;
+}
+
+.dui-textfield::placeholder{
+  color: rgba(255,255,255,0.35);
+}
+
+.dui-selector{
+  outline: none;
+  border:1px solid white;
+  color:white;
+  box-sizing: border-box; 
+  background: black;
+  padding: 8px;
+  font-size: 16px;
+  min-width: 300px;
+  margin-block-end: 8px;
+}
+
+.dui-button{
+  outline: none;
+  border:2px solid white;
+  color:white;
+  box-sizing: border-box; 
+  background: black;
+  padding: 8px;
+  font-size: 16px;
+  min-width: 100px;
+  margin-block-end: 8px;
+}
+
+.dui-button:hover{
+  background: rgba(255,255,255,0.25);
 }
 
 ol{
