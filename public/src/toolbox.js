@@ -5,9 +5,10 @@
     curves_func: {title: "Curves Function"},
     filter: {title:"Filter Tool"},
     const: {title:"Constant"},
-    if_condition: {title: "If Condition"}
+    if_condition: {title: "If Condition"},
+    customize_builder: {title: "Blank Builder"}
   }
-  var toolbox = ["color","select","curves_func","filter","const","if_condition"].map(e=>{
+  var toolbox = ["color","select","curves_func","filter","const","if_condition", "customize_builder"].map(e=>{
     return {
       title: toolbox_lib[e].title,
       id:e
@@ -34,13 +35,24 @@
         showInsertBox(true);
       });
 
-      $(layers_dom).dblclick(e=>{
+      $(layers_dom).dblclick(e=>{ //dblclick
         // console.log(e);
         // console.log($(e.currentTarget))
         if(!$(e.currentTarget).hasClass("layers-list"))
         showDialog({
-          title: "Toolbox error",
-          layout: dui.Center({child:dui.Text("This layer can't be edit")})
+          title: "Edit builder",
+          layout: dui.Padding({
+            left: 10,
+            child:dui.Column({child:[
+              
+              dui.TextField({hint: "Name"}),
+              dui.Selector(),
+
+              dui.Text("This is Builder Editor, which allows you to change the builder of the layers or edit the source code of builder to customize function"),
+              dui.Button("Learn More"),
+              dui.Button("Edit Code"),
+            ]})
+          })
         })
       });
     });
