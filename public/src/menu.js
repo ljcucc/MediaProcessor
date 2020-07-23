@@ -2,7 +2,9 @@
   let menu_commands = {
     about: ()=>{
       showDialog({
-        title: "About"
+        title: "About",
+        layout: dui.Center({
+          child:dui.Text("This app is made by @ljcucc\n you can find more things about him on github.")})
       });
       // alert("MediaProcessor:\n - version: alpha 0.1.0\n - author: ljcucc on Github");
     },
