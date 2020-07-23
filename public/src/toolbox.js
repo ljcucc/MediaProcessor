@@ -156,7 +156,7 @@
     if(e.altKey) return;
     if($(e.currentTarget).hasClass("layers-list")) return;
 
-    console.log(JSON.parse(decodeURI($(e.target).attr("data"))));
+    var obj = (JSON.parse(decodeURI($(e.target).attr("data"))));
 
     EditLayer({
       title: " ",
@@ -164,9 +164,21 @@
         left: 10,
         child:dui.Column({child:[
           dui.Selector({
-            list:toolbox.map(item=>[[item.id], [item.title]])
+            list:toolbox.map(item=>[[item.id], [item.title]]),
+            onStart: (e)=>{
+              console.log("on start!");
+              console.log(obj);
+              console.log(obj.id.replace("toolbox-",""));
+
+              e.val(obj.id.replace("toolbox-",""));
+            }
           }),
-          dui.Button("Learn More"),
+          dui.Text("You're editing the template of builder. for quick advence, click the same layer with option(ALT) key. or click [Edit Code]"),
+          dui.Button("Learn More", {
+            onPressed: ()=>{
+              window.open("https://ljcucc.github.io/MediaProcessor/");
+            }
+          }),
           dui.Button("Edit Code"),
         ]}) //Column
       }) //Padding
