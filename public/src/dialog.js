@@ -29,13 +29,13 @@
     text: (data)=>{
       var text = $(`<div class="dui-text"></div>`);
       text.text(data.text);
-      return `<div class="dui-text">${text.html().replace(/\n/g, "<br>")}</div>`
+      return `<div class="dui-text" style="${data.other?.style?.font? `font-family:${data.other?.style?.font};`: ""} ${data.other?.style?.fontSize? `font-size:${data.other?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
     },
     center: (data)=>{
       return `<div class="dui-center">${getDialogUI(data.child)}</div>`
     },
     textfield: (data)=>{
-      return `<input class="dui-textfield" ${"hint" in data.data? `placeholder="${data.data.hint}"`: ""}/>`
+      return `<input class="dui-textfield" placeholder="${data.data?.hint || "type anything"}"/>`
     },
     padding: (data)=>{
       return `<div style="padding:${data.top}px ${data.right}px ${data.bottom}px ${data.left}px;">${getDialogUI(data.child)}</div>`
@@ -66,6 +66,7 @@
       // add Events...
       registerEvents();
     }else if(layout){
+      console.log(layout.type);
       return duiBuilder[layout.type](layout)
     }
     return "";
@@ -177,11 +178,11 @@
       callback
     });
   }
-
-  function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
 })();
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
