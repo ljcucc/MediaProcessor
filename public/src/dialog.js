@@ -57,7 +57,8 @@
     },
     codeeditor: (data)=>{
       return `<textarea class="dui-codeeditor"></textarea>`
-    }
+    },
+    canvas: duiCanvas.getHTMLTemplate
   };
 
   function getDialogUI(layout, callback){
@@ -84,7 +85,8 @@
     button: (id, events)=>{
       if(events?.onPressed)
         $("#"+id).click(e=>events.onPressed(e))
-    }
+    },
+    canvas: duiCanvas.registerEvent
   }
 
   function registerEvents(){
@@ -154,7 +156,7 @@
       var uuid = uuidv4();
 
       addEvents(uuid, "button", {
-        onPressed: data?.onPressed || null
+        onPressed: data?.onPressed
       })
 
       return {
@@ -168,6 +170,19 @@
       return {
         type: "codeeditor"
       }
+    },
+    Canvas: (data)=>{
+      var uuid = uuidv4();
+
+      addEvents(uuid, "canvas", {
+        onStart: data?.onStart,
+        onDraw: data?.onDraw
+      });
+
+      return {
+        uuid,
+        type: "canvas"
+      };
     }
   };
 
