@@ -168,6 +168,12 @@
       layout: dui.Padding({
         left: 10,
         child:dui.Column({child:[
+          dui.Canvas({
+            onStart:e=>{
+              console.log(e);
+              console.log("canvas ready")
+            }
+          }),
           propertyUI,
           dui.Text(`uuid: ${obj.uuid}\n\n`,{
             style:{
