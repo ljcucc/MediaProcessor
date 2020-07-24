@@ -29,7 +29,12 @@
     credit: ()=>{
       showDialog({
         title: "Credit",
-        layout: dui.Text(" - jQuery-3.x.x - MIT License\n - Power Editing Core - MIT License")
+        layout: dui.Text(" - jQuery-3.x.x - MIT License\n - Power Editing Core - MIT License", {
+          style:{
+            font: "monospace",
+            fontSize: "16px"
+          }
+        })
       });
     },
     reload_preview,
@@ -58,6 +63,7 @@
       {type:"item",title: "Copy", id:"copy", bind:"C-c"},
       {type:"item",title: "Cut", id:"cut", bind:"C-x"},
       {type:"item",title: "Paste", id:"paste", bind:"C-v"},
+      {type:"item",title: "Select All", id:"select_all", bind:"C-a"},
       {type:"split"},
       {type:"item",title: "Undo", id:"undo", bind:"C-z"},
       {type:"item",title: "Redo", id:"redo", bind:"C-Z"}
