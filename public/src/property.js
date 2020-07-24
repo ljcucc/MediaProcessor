@@ -17,3 +17,22 @@ function reload_preview(){
 window.addEventListener("load",e=>{
   $(".preview-home").click(reload_preview)
 })
+
+var specialPropertyUIBuilder = {
+  image: ()=>{
+    return dui.Column({
+      child:[
+        dui.Padding({
+          top:16,
+          bottom: 16,
+          child:dui.Column({
+              child:[
+                dui.Text("Name:"),
+                dui.TextField()
+              ]
+            }) //Column
+        }) // Padding
+      ] //child::Column
+    }) //Column
+  }
+}
