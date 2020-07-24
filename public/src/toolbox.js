@@ -122,11 +122,12 @@
   function dragStart(e){
     showInsertBox(true);
     console.log(e);
-    if(e.target.classList.contains("toolbox-item")){
+    if(e.target.classList.contains("toolbox-item")){ // new item to be add
       e.dataTransfer.setData('text/plain', JSON.stringify({
         id:e.target.id,
         data: {
-          id: e.target.id
+          id: e.target.id,
+          uuid: uuidv4()
         },
         new:true
       }));
@@ -157,12 +158,24 @@
     if($(e.currentTarget).hasClass("layers-list")) return;
 
     var obj = (JSON.parse(decodeURI($(e.target).attr("data"))));
+    let type = obj.id.replace("toolbox-", "");
+
+    var propertyUI = type in specialPropertyUIBuilder? specialPropertyUIBuilder[type]() : dui.Text("");
+    console.log(propertyUI);
 
     EditLayer({
       title: " ",
       layout: dui.Padding({
         left: 10,
         child:dui.Column({child:[
+          propertyUI,
+          dui.Text(`uuid: ${obj.uuid}\n\n`,{
+            style:{
+              font: "monospace",
+              fontSize: "16px"
+            }
+          }),
+          dui.Text("Default Template:"),
           dui.Selector({
             list:toolbox.map(item=>[[item.id], [item.title]]),
             onStart: (e)=>{
@@ -173,7 +186,7 @@
               e.val(obj.id.replace("toolbox-",""));
             }
           }),
-          dui.Text("You're editing the template of builder. for quick advence, click the same layer with option(ALT) key. or click [Edit Code]"),
+          dui.Text("You're editing the template of builder. for quick advence, click the same layer with option(ALT) key. or click [Edit Code]\n\n"),
           dui.Button("Learn More", {
             onPressed: ()=>{
               window.open("https://ljcucc.github.io/MediaProcessor/");
