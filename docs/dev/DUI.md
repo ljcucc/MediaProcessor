@@ -20,6 +20,7 @@ The API of DUI, in this reference, we'll called `window.dui` as `dui` instead, *
 |`+ dui.TextField({*hint:String})`|Generate input box|
 |`+ dui.Padding({child: element, *top: (int)pixel_length, *bottom: (int)pixel_length, *left: (int)pixel_length, *right: (int)pixel_length,})`| Make child element padding, parameter top, bottom, left, right is optional, defualt is 0|
 |`+ dui.Selector(*default: String = "(default)",*list:[ [item_id, item_title] ])`|Make a dropdown selector. *default:String is the default value of the selector. default is `"(Default)"`|
+|`+ dui.Canvas({onStart: callback, onDraw: callback})`|duiCanvas element, more about duiCanvas see [here](./canvas.md)|
 
 Example:
 ```js
