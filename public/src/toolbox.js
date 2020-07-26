@@ -169,9 +169,17 @@
         left: 10,
         child:dui.Column({child:[
           dui.Canvas({
-            onStart:e=>{
-              console.log(e);
-              console.log("canvas ready")
+            onStart:ctx=>{
+              console.log(ctx);
+              console.log("canvas ready");
+
+              let draw = duiCanvas.draw;
+
+              draw.setFillColor(ctx, draw.Color(255));
+              draw.Rect(ctx, 0,0,100,100);
+            },
+            onMouseMove:(mouse)=>{
+              console.log(mouse);
             }
           }),
           propertyUI,
