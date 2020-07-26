@@ -15,6 +15,7 @@
     
     $(".dialog-container").fadeIn(150);
   }
+  window.showDialog = showDialog;
 })();
 
 function uuidv4() {
