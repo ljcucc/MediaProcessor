@@ -84,7 +84,6 @@
     }
   }
 
-  window.showDialog = showDialog;
   window.dui = {
     getDialogUI,
     Column: (data)=>{
