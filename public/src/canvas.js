@@ -51,11 +51,6 @@
 
     if(events?.onStart)
       events.onStart(canvas.getContext('2d'), canvas);
-    
-    if(events?.onMouseMove)
-      $("#"+id).mousemove(()=>{
-        onMouseMove(mouse);
-      });
   }
 
   window.duiCanvas = {

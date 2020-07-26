@@ -176,6 +176,7 @@
 
       addEvents(uuid, "canvas", {
         onStart: data?.onStart,
+        onMouseMove: data?.onMouseMove,
         onDraw: data?.onDraw
       });
 
