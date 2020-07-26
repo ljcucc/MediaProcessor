@@ -37,7 +37,7 @@
         })
       });
     },
-    reload_preview,
+    reload_preview: MP_property.reload_preview,
     offical_website:()=>{
       window.open("https://ljcucc.github.io/MediaProcessor");
     }
