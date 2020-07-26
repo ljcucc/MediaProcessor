@@ -15,6 +15,9 @@
     Rect:(ctx, x,y, width, height)=>{ 
       ctx.fillRect(x, y, width, height);
     },
+    Clear: (ctx)=>{
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    },
     Image:(ctx)=>{
 
     }
@@ -46,7 +49,7 @@
       mouse = getMousePos(canvas, evt);
 
       if(events?.onMouseMove)
-      events.onMouseMove(mouse);
+      events.onMouseMove(canvas.getContext('2d'), mouse);
     }, false);
 
     if(events?.onStart)
