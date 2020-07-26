@@ -176,10 +176,14 @@
               let draw = duiCanvas.draw;
 
               draw.setFillColor(ctx, draw.Color(255));
-              draw.Rect(ctx, 0,0,100,100);
+              // draw.Rect(ctx, 0,0,100,100);
             },
-            onMouseMove:(mouse)=>{
+            onMouseMove:(ctx, mouse)=>{
               console.log(mouse);
+              let draw = duiCanvas.draw;
+
+              draw.Clear(ctx);
+              draw.Rect(ctx, mouse.x-1,mouse.y-1, 2, 2);
             }
           }),
           propertyUI,
