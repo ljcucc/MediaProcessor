@@ -42,8 +42,7 @@
     },
     codeeditor: (data)=>{
       return `<textarea class="dui-codeeditor"></textarea>`
-    },
-    canvas: duiCanvas.getHTMLTemplate
+    }
   };
 
   function getTemplate(layout, callback){
@@ -70,8 +69,7 @@
     button: (id, events)=>{
       if(events?.onPressed)
         $("#"+id).click(e=>events.onPressed(e))
-    },
-    canvas: duiCanvas.registerEvent
+    }
   }
 
   function registerEvents(){
@@ -87,6 +85,7 @@
   window.dui = {
     createDUI,
     getTemplate,
+    addEvents,
     Column: (data)=>{
       return {
         type:"column",
@@ -156,20 +155,6 @@
         type: "codeeditor"
       }
     },
-    Canvas: (data)=>{
-      var uuid = uuidv4();
-
-      addEvents(uuid, "canvas", {
-        onStart: data?.onStart,
-        onMouseMove: data?.onMouseMove,
-        onDraw: data?.onDraw
-      });
-
-      return {
-        uuid,
-        type: "canvas"
-      };
-    }
   };
 
   function addEvents(id, type, callback){
@@ -180,11 +165,12 @@
     });
   }
 
-  function createDUI(id, method, builder, EventRegister){
-    if(!(id in window.dui) && method)
-      window?.dui[id] = method;
-    else
-      throw `method ${id} is exist`;
+  function createDUI(config){
+    var id = config?.id, method = config?.constructor, builder = config?.template, EventRegister = config?.events, methodName = config?.name
+    if(!(methodName in window.dui) && method){
+      window.dui[methodName] = method;
+    }else
+      throw `method ${methodName} is exist`;
     
     if(!(id in duiBuilder) && builder)
       duiBuilder[id] = builder;
@@ -197,5 +183,7 @@
       throw `EventRegister ${id} is exist`;
     
     
+    console.log(config);
+    console.log(window.dui);
   }
 })();
