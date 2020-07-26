@@ -22,7 +22,6 @@
 
     }
   };
-
   function getHTMLTemplate(data){
     return `<canvas id="${data.uuid}" width="${data?.width || 320} height="${data?.height || 240}">
       <p>Opsss... Your browser doesn't support canvas.</p>
@@ -56,9 +55,29 @@
       events.onStart(canvas.getContext('2d'), canvas);
   }
 
+  window.dui.createDUI({
+      id: "canvas", 
+      name: "Canvas",
+      constructor: (data)=>{
+        var uuid = uuidv4();
+  
+        dui.addEvents(uuid, "canvas", {
+          onStart: data?.onStart,
+          onMouseMove: data?.onMouseMove,
+          onDraw: data?.onDraw
+        });
+  
+        return {
+          uuid,
+          type: "canvas"
+        };
+      },
+      template: getHTMLTemplate,
+      events: registerEvent
+    }
+  );
+
   window.duiCanvas = {
-    getHTMLTemplate,
-    registerEvent,
     draw:drawFunction
   };
 })();
