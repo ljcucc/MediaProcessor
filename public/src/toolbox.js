@@ -179,7 +179,6 @@
               // draw.Rect(ctx, 0,0,100,100);
             },
             onMouseMove:(ctx, mouse)=>{
-              console.log(mouse);
               let draw = duiCanvas.draw;
 
               draw.Clear(ctx);

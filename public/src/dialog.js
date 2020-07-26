@@ -8,7 +8,7 @@
   function showDialog(data){
     $(".dialog>.title").text((data && "title" in data)?data.title: "Dialog");
     if(data && "layout" in data){
-      getTemplate(data.layout, duiContainer=>{
+      dui.getTemplate(data.layout, duiContainer=>{
         $(".dialog>.dui").html(duiContainer);
       });
     }

@@ -7,7 +7,7 @@
     column: (data)=>{
       return `<div class="dui-column-container"> ${
         data.child.reduce((acc, cur)=>{
-          return acc + `<div class="dui-column">${getTemplate(cur)}</div>`
+          return acc + `<div class="dui-column">${dui.getTemplate(cur)}</div>`
         },"")
       }</div`;
     },
@@ -17,13 +17,13 @@
       return `<div class="dui-text" style="${data.other?.style?.font? `font-family:${data.other?.style?.font};`: ""} ${data.other?.style?.fontSize? `font-size:${data.other?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
     },
     center: (data)=>{
-      return `<div class="dui-center">${getTemplate(data.child)}</div>`
+      return `<div class="dui-center">${dui.getTemplate(data.child)}</div>`
     },
     textfield: (data)=>{
       return `<input class="dui-textfield" placeholder="${data.data?.hint || "type anything"}"/>`
     },
     padding: (data)=>{
-      return `<div style="padding:${data.top}px ${data.right}px ${data.bottom}px ${data.left}px;">${getTemplate(data.child)}</div>`
+      return `<div style="padding:${data.top}px ${data.right}px ${data.bottom}px ${data.left}px;">${dui.getTemplate(data.child)}</div>`
     },
     selector: (data)=>{
       return `
