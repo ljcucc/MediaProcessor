@@ -7,7 +7,7 @@
     column: (data)=>{
       return `<div class="dui-column-container"> ${
         data.child.reduce((acc, cur)=>{
-          return acc + `<div class="dui-column">${getDialogUI(cur)}</div>`
+          return acc + `<div class="dui-column">${getTemplate(cur)}</div>`
         },"")
       }</div`;
     },
@@ -17,13 +17,13 @@
       return `<div class="dui-text" style="${data.other?.style?.font? `font-family:${data.other?.style?.font};`: ""} ${data.other?.style?.fontSize? `font-size:${data.other?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
     },
     center: (data)=>{
-      return `<div class="dui-center">${getDialogUI(data.child)}</div>`
+      return `<div class="dui-center">${getTemplate(data.child)}</div>`
     },
     textfield: (data)=>{
       return `<input class="dui-textfield" placeholder="${data.data?.hint || "type anything"}"/>`
     },
     padding: (data)=>{
-      return `<div style="padding:${data.top}px ${data.right}px ${data.bottom}px ${data.left}px;">${getDialogUI(data.child)}</div>`
+      return `<div style="padding:${data.top}px ${data.right}px ${data.bottom}px ${data.left}px;">${getTemplate(data.child)}</div>`
     },
     selector: (data)=>{
       return `
@@ -46,7 +46,7 @@
     canvas: duiCanvas.getHTMLTemplate
   };
 
-  function getDialogUI(layout, callback){
+  function getTemplate(layout, callback){
     if(callback){
       callback(duiBuilder[layout.type](layout));
       // add Events...
@@ -85,7 +85,8 @@
   }
 
   window.dui = {
-    getDialogUI,
+    createDUI,
+    getTemplate,
     Column: (data)=>{
       return {
         type:"column",
@@ -177,5 +178,24 @@
       type,
       callback
     });
+  }
+
+  function createDUI(id, method, builder, EventRegister){
+    if(!(id in window.dui) && method)
+      window?.dui[id] = method;
+    else
+      throw `method ${id} is exist`;
+    
+    if(!(id in duiBuilder) && builder)
+      duiBuilder[id] = builder;
+    else
+      throw `builder ${id} is exist`;
+    
+    if(!(id in duiEventRegister) && EventRegister)
+      duiEventRegister[id] = EventRegister;
+    else
+      throw `EventRegister ${id} is exist`;
+    
+    
   }
 })();
