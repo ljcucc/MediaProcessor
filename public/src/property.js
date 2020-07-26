@@ -8,15 +8,23 @@ function EditLayer(data){
     }
 }
 
-function reload_preview(){
-  $(".preview-container").html("");
-  $(".preview-title").text("");
-  $(".preview>.title").text(" ");
-}
+(()=>{
+  function reload_preview(){
+    $(".preview-container").html("");
+    $(".preview-title").text("");
+    $(".preview>.title").text(" ");
+  }
 
-window.addEventListener("load",e=>{
-  $(".preview-home").click(reload_preview)
-})
+  window.addEventListener("load",e=>{
+    $(".preview-home").click(reload_preview)
+  });
+
+  window.MP_property = { //Property::MediaProcessor
+    reload_preview
+  }
+})();
+
+
 
 var specialPropertyUIBuilder = {
   image: ()=>{
