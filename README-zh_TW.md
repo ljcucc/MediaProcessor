@@ -1,5 +1,7 @@
 🚧（開發建設中...，歡迎 pull request 協作！）
-zh-TW
+
+🇹🇼 zh-TW
+
 # Media Processor
 Media Processor 是一個極簡主義風格的一個圖像媒體編輯器 。
 
