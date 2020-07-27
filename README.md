@@ -11,7 +11,7 @@ The Media Processor is a minimalist image Media editor.
 If you are a developer or have programming experience, welcome to the Wiki to see a series of development methods for the Media Processor extension.
 
 ## More language
-we have another ["zh_TW" version of README.md](README-zh_TW.md), try it out!
+we have another ["zh_TW" 🇹🇼 version of README.md](README-zh_TW.md), try it out!
 
 # Get Started
 This project is under Under construction🚧, but you can go and try out our current built, which is base on master* branch.
