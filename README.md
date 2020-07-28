@@ -18,4 +18,4 @@ This project is under Under construction🚧, but you can go and try out our cur
 Go to [Web experiment version](https://ljcucc.github.io/MediaProcessor/public/) to try the experiment version.
 
 ## Contribution
-find more doucment at [here](./docs/dev/README.md), pull request is welcome! 😄
+find more doucment at [here](https://github.com/ljcucc/MediaProcessor/wiki/Contribution-%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB), pull request is welcome! 😄
