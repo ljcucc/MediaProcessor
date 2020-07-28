@@ -19,5 +19,5 @@ Media Processor 是一個極簡主義風格的一個圖像媒體編輯器 。
 MeidaProcessor非常歡迎協作者們的貢獻 😄 ！！你可以在一下傳動門列表中找到所有你需要的開發資訊！
 
 傳送門列表（目前只有英文，將來會列入wiki中，請各位體諒和期待😓～）：
-* [總覽](./docs/dev/README.md)
-* [動態UI - DUI 簡介](./docs/dev/DUI.md)
+* [總覽](https://github.com/ljcucc/MediaProcessor/wiki/TW-%E5%8D%94%E4%BD%9C)
+* [動態UI - DUI 簡介](https://github.com/ljcucc/MediaProcessor/wiki/DUI-Reference)
