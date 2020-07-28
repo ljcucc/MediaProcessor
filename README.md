@@ -1,5 +1,8 @@
 🚧 (Under construction... pull request is welcome!)
 # MediaProcessor
+
+![MediaProcessorLogo](https://user-images.githubusercontent.com/22980191/88693055-68cba280-d131-11ea-8631-987c84f46fed.png)
+
 The Media Processor is a minimalist image Media editor.
 
 🛠 Any editing is based on "layers," which means you don't break the original file until you change the photo. At the same time, you can easily try different results under the existing editing without change the main strcuture of your project, for the image editing greatly reduce the chance of error.
