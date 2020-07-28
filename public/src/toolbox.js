@@ -184,14 +184,14 @@
               draw.Clear(ctx);
               draw.Rect(ctx, mouse.x-1,mouse.y-1, 2, 2);
             }
-          }),
+          }), //Canvas
           propertyUI,
           dui.Text(`uuid: ${obj.uuid}\n\n`,{
             style:{
               font: "monospace",
               fontSize: "16px"
             }
-          }),
+          }),//Text
           dui.Text("Default Template:"),
           dui.Selector({
             list:toolbox.map(item=>[[item.id], [item.title]]),
@@ -202,14 +202,17 @@
 
               e.val(obj.id.replace("toolbox-",""));
             }
-          }),
+          }),//Selector
           dui.Text("You're editing the template of builder. for quick advence, click the same layer with option(ALT) key. or click [Edit Code]\n\n"),
-          dui.Button("Learn More", {
-            onPressed: ()=>{
-              window.open("https://ljcucc.github.io/MediaProcessor/");
-            }
-          }),
-          dui.Button("Edit Code"),
+          dui.Row({child:[
+            dui.Button("Learn More", {
+              onPressed: ()=>{
+                window.open("https://ljcucc.github.io/MediaProcessor/");
+              }
+            }),
+            dui.Button("Edit Code"),
+          ]}) //Row
+          
         ]}) //Column
       }) //Padding
     })// showDialog
