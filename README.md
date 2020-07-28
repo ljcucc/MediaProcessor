@@ -2,6 +2,7 @@
 # MediaProcessor
 
 ![MediaProcessorLogo](https://user-images.githubusercontent.com/22980191/88693587-0de67b00-d132-11ea-8c0a-bb2ad6c019d6.png)
+*(Logo is temporary, icon from [material icon](https://material.io/icons))*
 
 The Media Processor is a minimalist image Media editor.
 
