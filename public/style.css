@@ -336,6 +336,15 @@ body {
   /* border:1px solid white; */
 }
 
+.dui-row-container{
+  display:flex;
+  flex-direction: row;
+}
+
+.dui-row-container>*{
+  padding-inline-end: 8px;
+}
+
 ol{
   margin:0;
 }
