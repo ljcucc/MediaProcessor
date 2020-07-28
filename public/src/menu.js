@@ -6,12 +6,17 @@
         layout: dui.Center({
           child:dui.Column({child:[
             dui.Text("This app is made by @ljcucc\n you can find more things about him on github."),
-            dui.Button("Github", {
-              onPressed: ()=> window.open("https://ljcucc.github.io/MediaProcessor/")
-            }),
-            dui.Button("Blog", {
-              onPressed: ()=> window.open("https://ljcucc.blogspot.com")
+            dui.Row({
+              child:[
+                dui.Button("Github", {
+                  onPressed: ()=> window.open("https://ljcucc.github.io/MediaProcessor/")
+                }),
+                dui.Button("Blog", {
+                  onPressed: ()=> window.open("https://ljcucc.blogspot.com")
+                })
+              ]
             })
+            
           ]})
         })
       });
@@ -40,20 +45,19 @@
     reload_preview: MP_property.reload_preview,
     offical_website:()=>{
       window.open("https://ljcucc.github.io/MediaProcessor");
-    }
+    },
+    manage_assets:AssetsManager.openImage
   };
 
   let menus = [
     {type: "menu", title: "MediaProcessor", menu:[
       {type:"item",title: "About", id:"about"},
       {type:"item", title: "Settings", id:"settings", bind:"C-,"},
-      {type:"item", title: "Project Settings", id:"project_settings", bind:"C-F"},
       {type:"split"},
       {type:"item", title:"Quit", id:"quit", bind:"C-q"}
     ]},
     {type:"menu", title: "File",menu:[
       {type:"item",title: "New", id:"new", bind:"C-n"},
-      {type:"item",title: "Clone", id:"clone", bind:"C-n"},
       {type:"split"},
       {type:"item",title: "Open", id:"open", bind:"C-o"},
       {type:"item",title: "Save", id:"save", bind:"C-s"},
@@ -72,16 +76,13 @@
       {type:"item",title: "Zoom in", id:"zoom_in", bind:"C-+"},
       {type:"item",title: "Zoom out", id:"zoom_out", bind:"C--"},
       {type:"split"},
-      {type:"item",title: "Reload Preview", id:"reload_preview", bind:"C-r"},
-      {type:"item",title: "Toggle Builder Editor", id:"toggle_build_editor"},
+      {type:"item",title: "Reload", id:"reload_preview", bind:"C-r"},
     ]},
-    {type:"menu", title:"Extensions", menu:[
-      {type:"item",title: "Online Install Extensions", id:"view_online_ext"},
-      {type:"item",title: "Manage Installed Extensions", id:"view_installed_ext"},
-      {type:"item",title: "Edit Extensions Path", id:"add_ext_path"},
+    {type:"menu", title:"Project", menu:[
+      {type:"item",title: "Manage Assets", id:"manage_assets"},
       {type:"split"},
-      {type:"item",title: "Extensions Console", id:"pec_repl_lite"},
-      {type:"item",title: "Connect to REPL Console", id:"connect_2_repl_console"},
+      {type:"item",title: "Manage Extensions", id:"view_online_ext"},
+      {type:"item",title: "Console", id:"pec_repl_lite"},
     ]},
     {type: "menu", title:"Support", menu:[
       {type:"item",title: "Help", id:"help", bind:"C-h"},
