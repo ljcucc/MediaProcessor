@@ -11,6 +11,13 @@
         },"")
       }</div`;
     },
+    row: (data)=>{
+      return `<div class="dui-row-container">${
+        data.child.reduce((acc, cur)=>{
+          return acc + `<div class="dui-column">${dui.getTemplate(cur)}</div>`
+        },"")
+      }</div>`
+    },
     text: (data)=>{
       var text = $(`<div class="dui-text"></div>`);
       text.text(data.text);
@@ -89,6 +96,12 @@
     Column: (data)=>{
       return {
         type:"column",
+        child: data.child
+      };
+    },
+    Row: data=>{
+      return {
+        type: "row",
         child: data.child
       };
     },
