@@ -10,19 +10,32 @@
 
 <body>
 
+  
+
   <div class="dialog-container" style="display:none;">
     <div class="dialog">
       <span class="close">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></span>
       <h2 class="title"></h2>
       <div class="dui"></div>
     </div>
   </div>
 
-  <div class="menu-bar">
+  <div class="tabs-bar">
+    <button class="menu-button">
+      <img width="20" src="menu-white.svg" alt="Menu">
+    </button>
+    <div class="menu-selection-canceler"></div>
+    <div class="menu-bar">
+    </div>
   </div>
+  
   <div class="parent">
     <div class="sidebar">
+      <h2 class="section-title">LAYERS</h2>
+      <ol class="list layers-list editable-unregistered" id="layers_list">
+      </ol>
+
       <h2 class="section-title">TOOLBOX</h2>
       <div class="list toolbox-list">
       </div>
@@ -30,13 +43,11 @@
 
     <div class="split"></div>
 
-    <div class="sidebar">
-      <h2 class="section-title">LAYERS</h2>
-      <ol class="list layers-list editable-unregistered" id="layers_list">
-      </ol>
-    </div>
+    <!-- <div class="sidebar">
+      
+    </div> -->
 
-    <div class="split"></div>
+    <!-- <div class="split"></div> -->
 
     <div class="content preview">
       <h2 class="section-title"><span class="preview-home" title="Preview Image">PREVIEW</span><span class="preview-title"></span></h2>
