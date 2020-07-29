@@ -24,7 +24,7 @@
       return `<div class="dui-text" style="${data?.style?.font? `font-family:${data?.style?.font};`: ""} ${data?.style?.fontSize? `font-size:${data?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
     },
     Center: (data)=>{
-      return `<div class="dui-center">${data.child}</div>`
+      return `<div class="dui-center">${data}</div>`
     },
     TextField: (data)=>{
       return `<input class="dui-textfield" placeholder="${data?.hint || "type anything"}"/>`

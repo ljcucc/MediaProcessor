@@ -6,7 +6,7 @@
         layout: dui.Center(
           dui.Column({child:[
             dui.Text("This app is made by @ljcucc\n you can find more things about him on github."),
-            dui.Center({child:
+            dui.Center(
               dui.Row({
                 child:[
                   dui.Button("Github", {
@@ -17,7 +17,7 @@
                   })
                 ]
               })
-            })
+            )
             
           ]})
         ) //Center
