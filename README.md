@@ -1,4 +1,4 @@
-🚧 (Under construction... pull request is welcome!)
+🚧 (Under developing... pull request is welcome!)
 # MediaProcessor
 
 ![MediaProcessorLogo](https://user-images.githubusercontent.com/22980191/88693587-0de67b00-d132-11ea-8c0a-bb2ad6c019d6.png)
