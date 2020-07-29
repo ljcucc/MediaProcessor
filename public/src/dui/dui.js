@@ -18,10 +18,20 @@
         },"")
       }</div>`
     },
+<<<<<<< HEAD
     Text: (t,data)=>{
       let text = $(`<div class="dui-text"></div>`);
       text.text(t);
       return `<div class="dui-text" style="${data?.style?.font? `font-family:${data?.style?.font};`: ""} ${data?.style?.fontSize? `font-size:${data?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
+=======
+    text: (data)=>{
+      var text = $(`<div class="dui-text"></div>`);
+      text.text(data.text);
+      return `<div class="dui-text" style="${data.other?.style?.font? `font-family:${data.other?.style?.font};`: ""} ${data.other?.style?.fontSize? `font-size:${data.other?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
+    },
+    center: (data)=>{
+      return `<div class="dui-center">${dui.getTemplate(data)}</div>`
+>>>>>>> be3e8e0d18084aeaf7bc1ee55713b2d6ea19be3e
     },
     Center: (data)=>{
       return `<div class="dui-center">${data.child}</div>`
@@ -120,7 +130,86 @@
     createDUI,
     getTemplate,
     addEvents,
+<<<<<<< HEAD
   }, duiBuilder);
+=======
+    Column: (data)=>{
+      return {
+        type:"column",
+        child: data.child
+      };
+    },
+    Row: data=>{
+      return {
+        type: "row",
+        child: data.child
+      };
+    },
+    Text: (text, data)=>{
+      return {
+        type:"text",
+        text,
+        other: data
+      };
+    },
+    Center: (data)=>{
+      return {
+        type: "center",
+        child: data
+      }
+    },
+    TextField: (data)=>{
+      return {
+        type: "textfield",
+        data
+      };
+    },
+    Padding: (data)=>{
+      return {
+        type: "padding",
+        left: data.left || 0,
+        right: data.right || 0,
+        top: data.top || 0,
+        bottom: data.bottom || 0,
+        child:data.child
+      };
+    },
+    Selector: (data)=>{
+      var uuid = uuidv4();
+
+      addEvents(uuid, "selector", {
+        onStart: data?.onStart || null,
+        onChoose: data?.onChoose || null
+      });
+
+      return {
+        type: "selector",
+        default: data?.default || "(Default)",
+        list: data?.list || [["foo", "Foo"], ["bar", "Bar"]],
+        uuid
+      }
+    },
+    Button: (text, data)=>{
+      var uuid = uuidv4();
+
+      addEvents(uuid, "button", {
+        onPressed: data?.onPressed
+      })
+
+      return {
+        type: "button",
+        text,
+        data,
+        uuid
+      }
+    },
+    CodeEditor: (data)=>{
+      return {
+        type: "codeeditor"
+      }
+    },
+  };
+>>>>>>> be3e8e0d18084aeaf7bc1ee55713b2d6ea19be3e
 
   function addEvents(id, type, callback){
     events.push({

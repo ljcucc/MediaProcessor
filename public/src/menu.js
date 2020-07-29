@@ -3,22 +3,24 @@
     about: ()=>{
       showDialog({
         title: "About",
-        layout: dui.Center({
-          child:dui.Column({child:[
+        layout: dui.Center(
+          dui.Column({child:[
             dui.Text("This app is made by @ljcucc\n you can find more things about him on github."),
-            dui.Row({
-              child:[
-                dui.Button("Github", {
-                  onPressed: ()=> window.open("https://ljcucc.github.io/MediaProcessor/")
-                }),
-                dui.Button("Blog", {
-                  onPressed: ()=> window.open("https://ljcucc.blogspot.com")
-                })
-              ]
+            dui.Center({child:
+              dui.Row({
+                child:[
+                  dui.Button("Github", {
+                    onPressed: ()=> window.open("https://ljcucc.github.io/MediaProcessor/")
+                  }),
+                  dui.Button("Blog", {
+                    onPressed: ()=> window.open("https://ljcucc.blogspot.com")
+                  })
+                ]
+              })
             })
             
           ]})
-        })
+        ) //Center
       });
       // alert("MediaProcessor:\n - version: alpha 0.1.0\n - author: ljcucc on Github");
     },

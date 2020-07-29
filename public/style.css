@@ -337,6 +337,11 @@ body {
   font-size: 18px;
   margin: 16px 0;
   font-weight: 500;
+  padding-left:50px;
+}
+
+.dialog>.dui{
+  padding: 16px;
 }
 
 /* width */
@@ -372,18 +377,19 @@ body {
 
 .dui-text{
   color:black;
-  margin-block-end: 8px;
+  margin-block-end: 16px;
   font-weight: 500;
 }
 
 .dui-center{
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 .dui-textfield{
   outline: none;
-  border:1px solid black;
+  border:2px solid black;
   color:black;
   box-sizing: border-box; 
   background: transparent;
@@ -391,15 +397,16 @@ body {
   font-size: 16px;
   min-width: 300px;
   margin-block-end: 8px;
+  border-radius: 4px;
 }
 
 .dui-textfield::placeholder{
-  color: rgba(255,255,255,0.35);
+  color: rgba(0,0,0,0.35);
 }
 
 .dui-selector{
   outline: none;
-  border:1px solid white;
+  border:2px solid black;
   color:white;
   box-sizing: border-box; 
   background: black;
@@ -407,19 +414,26 @@ body {
   font-size: 16px;
   min-width: 300px;
   margin-block-end: 8px;
+  border-radius: 4px;
+}
+
+.dui-selector:focus{
+  background: transparent;
+  color:black;
 }
 
 .dui-button{
   outline: none;
-  border:1px solid black;
+  border:2px solid black;
   color:black;
   box-sizing: border-box; 
   background: transparent;
   padding: 8px;
   font-size: 16px;
   min-width: 100px;
-  margin-block-end: 8px;
+  margin-block-end: 16px;
   text-transform: uppercase;
+  border-radius: 4px;
 }
 
 .dui-button:hover{
