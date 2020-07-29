@@ -158,18 +158,18 @@
     $(".preview>.title").text((data && "title" in data)?data.title: "Preview");
     if(data && "layout" in data){
       dui.getTemplate(data.layout, duiContainer=>{
-        if (typeof(garbageBin) === 'undefined'){
-          //Here we are creating a 'garbage bin' object to temporarily 
-          //store elements that are to be discarded
-          garbageBin = document.createElement('div');
-          garbageBin.style.display = 'none'; //Make sure it is not displayed
-          document.body.appendChild(garbageBin);
-        }
-        let nodes = document.querySelector(".preview-container").childNodes;
-        for(let i in nodes){
-          garbageBin.append(nodes[i]);
-          garbageBin.innerHTML = "";
-        }
+        // if (typeof(garbageBin) === 'undefined'){
+        //   //Here we are creating a 'garbage bin' object to temporarily 
+        //   //store elements that are to be discarded
+        //   garbageBin = document.createElement('div');
+        //   garbageBin.style.display = 'none'; //Make sure it is not displayed
+        //   document.body.appendChild(garbageBin);
+        // }
+        // let nodes = document.querySelector(".preview-container").childNodes;
+        // for(let i in nodes){
+        //   garbageBin.append(nodes[i]);
+        //   garbageBin.innerHTML = "";
+        // }
         setTimeout(()=>{
           $(".preview-container").html(duiContainer);
         }, 100);
