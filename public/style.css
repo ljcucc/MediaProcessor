@@ -337,6 +337,11 @@ body {
   font-size: 18px;
   margin: 16px 0;
   font-weight: 500;
+  padding-left:50px;
+}
+
+.dialog>.dui{
+  padding: 16px;
 }
 
 /* width */
@@ -379,6 +384,7 @@ body {
 .dui-center{
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 .dui-textfield{
