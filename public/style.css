@@ -7,7 +7,7 @@
 
 .button{
   /* background:black; */
-  background: #212121;
+  background: #232323;
   outline: none;
   border:none;
   color:white;
@@ -58,6 +58,7 @@
   background: #212121;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   /* transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+  z-index: 1000;
 }
 
 .tabs-bar>button{
@@ -67,9 +68,26 @@
   border:none;
 }
 
+.menu-bar::after{
+  position: absolute;
+    content: "";
+    top: -16px;
+    left: 20px;
+    /* transform: translateX(50%); */
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #212121;
+    border-left-color: transparent;
+}
+
 .menu-bar{
   /* height: 30px; */
-  left: 40px;
+  top:48px;
+  left: 4px;
   /* top:10px; */
   display:none;
   /* align-items: center; */
@@ -78,9 +96,11 @@
   position: absolute;
 
   flex-direction: column;
-  background: #212121;
+  background: #232323;
   /* z-index: 1000; */
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 3px;
+  padding: 10px 0;
 }
 
 .menu-button:focus ~ .menu-bar, .menu-bar:hover{
@@ -157,7 +177,7 @@
   height: calc(100vh - 40px);
   display: grid;
   /* grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr; */
-  grid-template-columns: minmax(150px, 17%) 1px 1fr 1px minmax(300px, 30%);
+  grid-template-columns: minmax(150px, 17%) 1fr minmax(300px, 30%);
   padding: 0;
   margin: 0;
   /* height: calc(100% - 30px); */
@@ -174,7 +194,8 @@
   color:black;
 }
 
-.content {
+.image_preview {
+  background: #e5e5e5;
 }
 
 .parent>.split{
@@ -252,7 +273,7 @@
 body {
   font-family: system-ui, serif;
   /* background: black; */
-  background: #efefef;
+  background: white;
   color:black;
   margin: 0;
 
