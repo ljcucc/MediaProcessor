@@ -154,7 +154,7 @@
 
 
 .parent{
-  height: calc(100vh - 30px);
+  height: calc(100vh - 40px);
   display: grid;
   /* grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr; */
   grid-template-columns: minmax(150px, 17%) 1px 1fr;
