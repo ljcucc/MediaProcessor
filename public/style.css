@@ -463,16 +463,17 @@ body {
 }
 
 .dui-row-container>*{
-  padding-inline-end: 8px;
+  display:inline-block;
+  margin-right: 8px;
 }
 
 
-.dui-row-container{
+.dui-column-container{
   display:flex;
   flex-direction: column;
 }
 
-.dui-row-container>*{
+.dui-column-container>*{
   padding-inline-end: 8px;
 }
 
