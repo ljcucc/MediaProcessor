@@ -127,6 +127,14 @@
   }
 
   function menu_pressed(e){
+    $(".menu-bar").fadeOut(10);
+    setTimeout(()=>{
+      $(".menu-bar").css({
+        display: ""
+      })
+    }, 50);
+    // $(".menu-bar").show();
+    
     let item_id = e.srcElement.id.replace("menu_btn:","");
     item_id in menu_commands?menu_commands[item_id]():(0);
   }
