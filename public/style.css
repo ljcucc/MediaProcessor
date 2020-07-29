@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
 
-:root{
-  font-family: 'Roboto', sans-serif;
+:root,.button{
+  font-family: 'Noto Sans TC', Arial, Helvetica, sans-serif;
   font-weight: 300;
 }
 
@@ -16,7 +17,7 @@
   line-height: 30px;
   /* transition: background 0.15s; */
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 300;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -72,7 +73,7 @@
   position: absolute;
     content: "";
     top: -16px;
-    left: 20px;
+    left: 10px;
     /* transform: translateX(50%); */
     width: 0;
     height: 0;
@@ -97,7 +98,7 @@
 
   flex-direction: column;
   background: #232323;
-  /* z-index: 1000; */
+  z-index: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 3px;
   padding: 10px 0;
@@ -119,7 +120,7 @@
   background:#03a9f4;
 }
 
-.menu-bar:hover~.menu-selection-canceler{
+.menu-selection-canceler{
   top:0;
   bottom:0;
   left:0;
@@ -128,18 +129,18 @@
   background:black;
   z-index: 10000;
 }
-.menu-selection-canceler:hover{
-  display:none;
-}
 
 .menu-list{
   display: none;
   position: absolute;
-  background: #212121;
-  border:1px solid rgba(255,255,255,0.35);
+  background: #232323;
+  /* padding:8px 0; */
+  /* border:1px solid rgba(255,255,255,0.35); */
   color:white;
   font-size: 14px;
   min-width:  fit-content;
+  margin-bottom:4px;
+  border-radius: 4px;
 }
 .button:hover ~ .menu-list, .menu-list:hover{
   /* display: block; */
@@ -217,7 +218,7 @@
 
 .list>.item{
   padding: 8px 16px;
-  width: 100%;
+  width: calc(100% - 14px);
   color: black;
 }
 
@@ -271,7 +272,7 @@
 }
 
 body {
-  font-family: system-ui, serif;
+  /* font-family: system-ui, serif; */
   /* background: black; */
   background: white;
   color:black;
