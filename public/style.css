@@ -452,6 +452,16 @@ body {
   padding-inline-end: 8px;
 }
 
+
+.dui-row-container{
+  display:flex;
+  flex-direction: column;
+}
+
+.dui-row-container>*{
+  padding-inline-end: 8px;
+}
+
 ol{
   margin:0;
 }

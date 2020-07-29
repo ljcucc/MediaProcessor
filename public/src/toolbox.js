@@ -153,14 +153,38 @@
     })
   }
 
+  function EditLayer(data){
+    $(".preview-title").text(" / Property");
+    $(".preview>.title").text((data && "title" in data)?data.title: "Preview");
+    if(data && "layout" in data){
+      dui.getTemplate(data.layout, duiContainer=>{
+        if (typeof(garbageBin) === 'undefined'){
+          //Here we are creating a 'garbage bin' object to temporarily 
+          //store elements that are to be discarded
+          garbageBin = document.createElement('div');
+          garbageBin.style.display = 'none'; //Make sure it is not displayed
+          document.body.appendChild(garbageBin);
+        }
+        let nodes = document.querySelector(".preview-container").childNodes;
+        for(let i in nodes){
+          garbageBin.append(nodes[i]);
+          garbageBin.innerHTML = "";
+        }
+        setTimeout(()=>{
+          $(".preview-container").html(duiContainer);
+        }, 100);
+      });
+    }
+  }
+
   function propertyUIBuilder(e){ //dblclick
     if(e.altKey || e.ctrlKey) return;
     if($(e.currentTarget).hasClass("layers-list")) return;
 
-    var obj = (JSON.parse(decodeURI($(e.target).attr("data"))));
+    let obj = (JSON.parse(decodeURI($(e.target).attr("data"))));
     let type = obj.id.replace("toolbox-", "");
 
-    var propertyUI = type in specialPropertyUIBuilder? specialPropertyUIBuilder[type]() : dui.Text("");
+    let propertyUI = type in specialPropertyUIBuilder? specialPropertyUIBuilder[type]() : dui.Text("");
     console.log(propertyUI);
 
     EditLayer({
