@@ -3,7 +3,7 @@
 (()=>{
   var events = [];
 
-  var duiBuilder = {
+  var duiBuilder = {  // Could Power-Editing-Core generate content of duiBuilder? if could, which will save a lot of memory.
     column: (data)=>{
       return `<div class="dui-column-container"> ${
         data.child.reduce((acc, cur)=>{
@@ -24,7 +24,7 @@
       return `<div class="dui-text" style="${data.other?.style?.font? `font-family:${data.other?.style?.font};`: ""} ${data.other?.style?.fontSize? `font-size:${data.other?.style?.fontSize};`: ""}">${text.html().replace(/\n/g, "<br>")}</div>`
     },
     center: (data)=>{
-      return `<div class="dui-center">${dui.getTemplate(data.child)}</div>`
+      return `<div class="dui-center">${dui.getTemplate(data)}</div>`
     },
     textfield: (data)=>{
       return `<input class="dui-textfield" placeholder="${data.data?.hint || "type anything"}"/>`
@@ -113,9 +113,9 @@
       };
     },
     Center: (data)=>{
-      return{
+      return {
         type: "center",
-        child: data.child
+        child: data
       }
     },
     TextField: (data)=>{
@@ -132,7 +132,7 @@
         top: data.top || 0,
         bottom: data.bottom || 0,
         child:data.child
-      }
+      };
     },
     Selector: (data)=>{
       var uuid = uuidv4();
