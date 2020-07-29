@@ -157,7 +157,7 @@
   height: calc(100vh - 40px);
   display: grid;
   /* grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr; */
-  grid-template-columns: minmax(150px, 17%) 1px 1fr;
+  grid-template-columns: minmax(150px, 17%) 1px 1fr 1px minmax(300px, 30%);
   padding: 0;
   margin: 0;
   /* height: calc(100% - 30px); */
