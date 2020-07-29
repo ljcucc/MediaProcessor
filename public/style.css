@@ -25,7 +25,7 @@
 
 .button:hover{
   /* background: rgba(255,255,255,0.25); */
-  background: #1565c0;
+  background: #03a9f4;
   outline: none;
   border:none;
 }
@@ -46,7 +46,7 @@
 
 .button:focus{
   /* background: rgba(255,255,255,0.15); */
-  background:#1565c0;
+  /* background:#03a9f4; */
   outline: none;
   border:none;
 }
@@ -116,7 +116,7 @@
 }
 .menu-button:focus{
   /* display:flex; */
-  background:#1565c0;
+  background:#03a9f4;
 }
 
 .menu-bar:hover~.menu-selection-canceler{
@@ -222,7 +222,7 @@
 }
 
 .list>.item:hover{
-  background: rgba(255,255,255,0.15);
+  background: rgb(206, 206, 206);
 }
 
 .layers-list{
