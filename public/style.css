@@ -5,62 +5,137 @@
   font-weight: 300;
 }
 
-.menu-bar{
-  height: 30px;
-  display:flex;
-  align-items: center;
-  /* border-bottom:rgba(255,255,255,0.65) solid 1px ; */
-  box-sizing: border-box;
-}
-
 .button{
-  background:black;
+  /* background:black; */
+  background: #212121;
   outline: none;
   border:none;
   color:white;
-  padding: 0 16px;
+  padding: 0px 16px;
+  padding-left: 24px;
   line-height: 30px;
   /* transition: background 0.15s; */
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 100;
   cursor: pointer;
+  width: 100%;
+  text-align: left;
   /* text-transform: uppercase; */
 }
 
 .button:hover{
-  background: rgba(255,255,255,0.25);
+  /* background: rgba(255,255,255,0.25); */
+  background: #1565c0;
   outline: none;
   border:none;
 }
 
+.button::after{
+  content:">";
+  background-image: url('chevron_right-white.svg');
+  background-position: 50%;
+  background-size:30px 30px;
+  width: 30px;
+  /* color: rgba(255,255,255,0.65); */
+  float: right;
+  margin-left: 16px;
+  color:transparent;
+  display: block;
+}
+
 .button:focus{
-  background: rgba(255,255,255,0.15);
+  /* background: rgba(255,255,255,0.15); */
+  background:#1565c0;
   outline: none;
   border:none;
 }
+
+.tabs-bar{
+  display:flex;
+  flex-direction: row;
+  height: 40px;
+  background: #212121;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  /* transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+}
+
+.tabs-bar>button{
+  background: transparent;
+  color:white;
+  outline:none;
+  border:none;
+}
+
+.menu-bar{
+  /* height: 30px; */
+  left: 40px;
+  /* top:10px; */
+  display:none;
+  /* align-items: center; */
+  /* border-bottom:rgba(255,255,255,0.65) solid 1px ; */
+  box-sizing: border-box;
+  position: absolute;
+
+  flex-direction: column;
+  background: #212121;
+  /* z-index: 1000; */
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.menu-button:focus ~ .menu-bar, .menu-bar:hover{
+  display:flex;
+}
+.menu-button{
+  width:40px;
+  height:40px;
+}
+.menu-button:hover{
+  background: rgba(255,255,255,0.25);
+  
+}
+.menu-button:focus{
+  /* display:flex; */
+  background:#1565c0;
+}
+
+.menu-bar:hover~.menu-selection-canceler{
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  position:fixed;
+  background:black;
+  z-index: 10000;
+}
+.menu-selection-canceler:hover{
+  display:none;
+}
+
 .menu-list{
   display: none;
   position: absolute;
-  background: black;
+  background: #212121;
   border:1px solid rgba(255,255,255,0.35);
   color:white;
   font-size: 14px;
-  min-width: 100px;
+  min-width:  fit-content;
 }
-.button:hover ~ .menu-list{
-  display: block;
+.button:hover ~ .menu-list, .menu-list:hover{
+  /* display: block; */
+  display:inline-block;
 }
-.menu-list:hover{
+/* .menu-list:hover{
   display: block;
 }
 .menu-list:focus{
   display: none;
-}
+} */
 
 .menu-list>.item{
   cursor: pointer;
   padding:8px;
   padding-left: 16px;
+  white-space: nowrap;
 }
 .menu-list>.item:hover{
   background: rgba(255,255,255, 0.35);
@@ -68,7 +143,7 @@
 
 .menu-list>.split{
   height:1px;
-  background:rgba(255,255,255,0.35);
+  background:rgba(0,0,0,0.35);
 }
 .shortcut{
   color: rgba(255,255,255,0.65);
@@ -80,7 +155,8 @@
 .parent{
   height: calc(100vh - 30px);
   display: grid;
-  grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr;
+  /* grid-template-columns: minmax(150px, 17%) 1px minmax(200px, 17%) 1px 1fr; */
+  grid-template-columns: minmax(150px, 17%) 1px 1fr;
   padding: 0;
   margin: 0;
   /* height: calc(100% - 30px); */
@@ -92,13 +168,16 @@
   /* text-align: center; */
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  color:black;
 }
 
 .content {
 }
 
 .parent>.split{
-  background: rgba(255,255,255,0.65);
+  background: rgba(0,0,0,0.65);
   box-sizing: border-box;
   margin:0;
   margin-top: 30px;
@@ -117,7 +196,7 @@
 .list>.item{
   padding: 8px 16px;
   width: 100%;
-  color: white;
+  color: black;
 }
 
 .list>.item:hover{
@@ -136,7 +215,7 @@
 .layers-list>.arrow::after{
   content: "↓";
   display:block;
-  color:white;
+  color:black;
   text-align:left;
   margin-left:32px;
   font-size:24px;
@@ -157,11 +236,11 @@
   padding:16px;
   text-align:center;
   background:#cc737346;
-  color:white;
+  color:black;
 }
 
 .section-title{
-  color: white;
+  color: black;
   margin: 0;
   padding: 16px;
 
@@ -171,7 +250,9 @@
 
 body {
   font-family: system-ui, serif;
-  background: black;
+  /* background: black; */
+  background: #efefef;
+  color:black;
   margin: 0;
 
   display:flex;
@@ -183,7 +264,7 @@ body {
 }
 
 .dialog-container{
-  background:rgba(255,255,255,0.15);
+  background:rgba(0,0,0,0.15);
   position:fixed;
   left:0;
   right:0;
@@ -208,25 +289,27 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  background: black;
-  border: 1px solid rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  /* border: 1px solid rgba(255,255,255,0.65); */
 }
 
 .dialog>.close{
   float:right;
-  fill: white;
+  fill: black;
   padding: 8px;
   /* border-radius: 50%; */
   box-sizing:border-box;
 }
 
 .dialog>.close:hover{
-  background:rgba(255,255,255,0.35);
+  background:rgba(0,0,0,0.35);
 }
 
 .dialog>.title{
   float:top;
-  color:white;
+  color:black;
   text-align: center;
   font-size: 18px;
   margin: 16px 0;
@@ -236,7 +319,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
-  background: black;
+  /* background: black; */
 }
 
 /* Track */
@@ -246,13 +329,14 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,.35); 
+  background: rgba(0,0,0,.35); 
   border-radius: 10px;
+  transition:all 0.35s;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,.65);
+  background: rgba(0,0,0,.65);
 }
 
 .dui{
@@ -264,7 +348,7 @@ body {
 }
 
 .dui-text{
-  color:white;
+  color:black;
   margin-block-end: 8px;
   font-weight: 500;
 }
@@ -276,10 +360,10 @@ body {
 
 .dui-textfield{
   outline: none;
-  border:1px solid white;
-  color:white;
+  border:1px solid black;
+  color:black;
   box-sizing: border-box; 
-  background: black;
+  background: transparent;
   padding: 8px;
   font-size: 16px;
   min-width: 300px;
@@ -304,10 +388,10 @@ body {
 
 .dui-button{
   outline: none;
-  border:1px solid white;
-  color:white;
+  border:1px solid black;
+  color:black;
   box-sizing: border-box; 
-  background: black;
+  background: transparent;
   padding: 8px;
   font-size: 16px;
   min-width: 100px;
@@ -316,7 +400,7 @@ body {
 }
 
 .dui-button:hover{
-  background: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.25);
 }
 
 .dui-codeeditor{
