@@ -1,78 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media processor</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Processor (Low Power)</title>
 </head>
-
 <body>
-
-  
-
-  <div class="dialog-container" style="display:none;">
-    <div class="dialog">
-      <span class="close">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></span>
-      <h2 class="title"></h2>
-      <div class="dui"></div>
+    <div>
+        <button id="render">Render</button>
     </div>
-  </div>
-
-  <div class="tabs-bar">
-    <button class="menu-button">
-      <img width="20" src="menu-white.svg" alt="Menu">
-    </button>
-    <button style="display:none;" class="menu-selection-canceler" onclick="console.log('focus')"></button>
-    <div class="menu-bar">
+    <div>
+        <textarea id="layers"></textarea>
     </div>
-  </div>
-  
-  <div class="parent">
-    <div class="sidebar">
-      <h2 class="section-title">LAYERS</h2>
-      <ol class="list layers-list editable-unregistered" id="layers_list">
-      </ol>
-
-      <h2 class="section-title">TOOLBOX</h2>
-      <div class="list toolbox-list">
-      </div>
+    <div>
+        <canvas id="preview"></canvas>
     </div>
 
-    <!-- <div class="split"></div> -->
-
-    <!-- <div class="sidebar">
-      
-    </div> -->
-
-    <!-- <div class="split"></div> -->
-    
-    <div class="image_preview"></div>
-
-    <!-- <div class="split"></div> -->
-
-    <div class="content preview">
-      <h2 class="section-title"><span class="preview-home" title="Preview Image">PREVIEW</span><span class="preview-title"></span></h2>
-      <h2 class="title"></h2>
-      <div class="preview-container"></div>
-    </div>
-  </div>
-
+    <script src="./src/index.js"></script>
+    <script src="./src/layers.js"></script>
 </body>
-
-<!-- jQuery CDN -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./src/dui/dui.js"></script> <!-- Customize UI framework - DUI -->
-<script src="./src/dui/canvas.js"></script> <!-- Canvas UI Compoment -->
-<script src="./src/toolbox.js"></script> <!-- Drag and drop UI implements -->
-<script src="./src/property.js"></script>
-<script src="./src/dialog.js"></script> <!-- Dialog UI Compoment -->
-
-<script src="./src/app/assets.js"></script>
-<script src="./src/app/layers.js"></script>
-
-<script src="./src/menu.js"></script> <!-- Menu UI Compoment -->
-
 </html>
