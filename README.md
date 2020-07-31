@@ -9,5 +9,17 @@ What is low power mode? [Read this document](https://docs.google.com/document/d/
 
 Our goal is build a professional tools for low end devices, like Chromebook.
 
+# Design
+This is an example of layers code:
+```
++ layer:image
+  - x: 10
+  - y: 10
++ layer2:folder
+  + layer3:image
+    - x: 10
+    - y: 10
+```
+
 ## Contribution
 find more doucment at [here](https://github.com/ljcucc/MediaProcessor/wiki/Contribution-%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB), pull request is welcome! 😄
