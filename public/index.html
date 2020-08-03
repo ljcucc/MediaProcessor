@@ -9,13 +9,27 @@
 </head>
 <body>
     <div>
-        <button id="render">Render</button>
-        <button id="add_layer">Add Layer</button>
+        <div>
+            <!-- <input class="input" id="layer_name" placeholder="Layer Name">
+            <select id="layer_template">
+                <option value="image">(choose one)</option>
+                <option value="image">Image</option>
+                <option value="filter">Filter</option>
+                <option value="crop">Crop</option>
+                <option value="blank">Blank template</option>
+            </select> -->
+            <!-- <button id="add_layer">Add Layer</button> -->
+        </div>
     </div>
-    <div>
-        <textarea id="layers"></textarea>
-    </div>
-    <div>
+    <div class="body">
+        <div class="left-side">
+            <textarea id="layers" placeholder="Enter your code here"></textarea>
+            <div>
+                <button id="add_layer">Add Layer</button>
+                <button id="render">Render</button>
+            </div>
+        </div>
+        
         <canvas id="preview"></canvas>
     </div>
 
