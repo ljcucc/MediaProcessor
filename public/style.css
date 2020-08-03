@@ -1,4 +1,77 @@
-#layers{
+button{
+  border: none;
+  outline: none;
+
+  font-family: monospace;
+  background: white;
+  color:black;
+
+  padding: 4px;
+}
+
+button::before{
+  content:"["
+}
+
+button::after{
+  content:"]"
+}
+
+button:hover{
+  background: black;
+  color:white;
+}
+
+.input{
+  border:none;
+  outline: none;
+
+  border-bottom: 1px solid black;
+
+  padding: 4px;
+
+  font-family: monospace;
+
+  margin: 4px;
+  font-size: 14px;
+}
+
+.input::before{
+  content: "["
+}
+
+select{
+  font-family: monospace;
+  font-size: 14px;
+  padding: 4px;
+}
+
+textarea{
+  border:none;
+  outline: none;
+
   padding: 8px;
-  font-size: 15px;
+}
+
+#layers{
+  
+}
+
+.input:focus{
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+
+.body{
+  display: grid;
+  grid-template-columns: minmax(300px, 40%) 1fr;
+}
+
+.left-side{
+  padding: 8px;
+  border: 1px solid black;
+
+  display: grid;
+  grid-template-rows: 1fr minmax(100px, 20%);
+  height: calc(100vh - 100px);
 }
