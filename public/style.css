@@ -69,7 +69,7 @@ textarea{
 
 .left-side{
   padding: 8px;
-  border: 1px solid black;
+  border: 1.5px solid black;
 
   display: grid;
   grid-template-rows: 1fr minmax(100px, 20%);
