@@ -12,18 +12,18 @@
   function auto_format(){
     let cursorPos = txtarea.selectionStart;
     let linePos = (txtarea.value.substring(0, cursorPos).match(/\n/g)?.length || 0 )
-    console.log("\n")
-    console.log({
-      cursorPos,
-      linePos
-    });
+    // console.log("\n")
+    // console.log({
+    //   cursorPos,
+    //   linePos
+    // });
     let lineText = txtarea.value.split("\n")[linePos];
-    console.log(lineText);
+    // console.log(lineText);
 
     let indentLevel = (()=>{
       let trimed = lineText.trim();
       if(trimed == ""){
-        console.log("spacing")
+        // console.log("spacing")
         return String(lineText).length / 2;
       }
       
@@ -33,10 +33,10 @@
       
 
       if(checkCapital(trimed, /\+/g) == 0){
-        console.log(`capital head ${capital}`)
+        // console.log(`capital head ${capital}`)
         return capital / 2;
       }else if(checkCapital(trimed, /\-/g) == 0){
-        console.log(`capital property ${capital}`)
+        // console.log(`capital property ${capital}`)
         return capital / 2 - 1;
       }
 
@@ -55,17 +55,25 @@
     txtarea.selectionEnd = newCursorPos
     txtarea.selectionStart = newCursorPos;
 
-    console.log(txtarea.value);
+    // console.log(txtarea.value);
   } 
   
   renderBtn.addEventListener("click", e=>{
     let layersCode = document.querySelector("#layers");
-    console.log(layers.parse({
-      string: layersCode.value,
-      index: 0,
-      level:0
-    }));
+    // console.log(layers.parse({
+    //   string: layersCode.value,
+    //   index: 0,
+    //   level:0
+    // }));
   });
+
+  txtarea.addEventListener("click", e=>{
+    let cursorPos = txtarea.selectionStart;
+    let linePos = (txtarea.value.substring(0, cursorPos).match(/\n/g)?.length || 0 )
+    let lineText = txtarea.value.split("\n")[linePos];
+
+    console.log(lineText)
+  })
   
   txtarea.addEventListener("keydown", e=>{
     if(e.key == "Tab"){
