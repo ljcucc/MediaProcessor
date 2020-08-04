@@ -3,7 +3,7 @@ button{
   outline: none;
 
   font-family: monospace;
-  background: white;
+  background: transparent;
   color:black;
 
   padding: 4px;
@@ -51,6 +51,8 @@ textarea{
   outline: none;
 
   padding: 8px;
+
+  background: transparent;
 }
 
 #layers{
@@ -63,6 +65,7 @@ textarea{
 }
 
 .body{
+  padding: 8px;
   display: grid;
   grid-template-columns: minmax(300px, 40%) 1fr;
 }
@@ -74,4 +77,16 @@ textarea{
   display: grid;
   grid-template-rows: 1fr minmax(100px, 20%);
   height: calc(100vh - 100px);
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #eeeeee;
+}
+
+.menu{
+  /* border-bottom: 1.5px solid black; */
+  background: white;
+  height: 30px;
 }
