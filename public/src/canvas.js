@@ -58,4 +58,17 @@
   canvas.onmousedown = (handleMousePressed);
   canvas.onmouseup = (handleMouseUp);
   canvas.onmouseleave = (handleMouseLeave);
+
+  window.canvas = {
+    canvas,
+    setup: {
+      size: (list)=>{
+        canvas.width = list[0];
+        canvas.height = list[1]
+      },
+      background: (list)=>{
+        
+      }
+    }
+  }
 })();
