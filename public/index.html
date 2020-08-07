@@ -26,24 +26,34 @@
             </ul>
         </li>
         <li>
+            <button class="menu-btn">Run</button>
+            <ul class="menu-list">
+                <li id="render">Render <span class="shortcut">^R</span></li>
+                <li id="eval">Eval<span class="shortcut">^F</span></li>
+                <li id="render_eval">Render and Eval <span class="shortcut">^r</span></li>
+            </ul>
+        </li>
+        <li>
             <button class="menu-btn">Layers</button>
             <ul class="menu-list">
-                <li id="render">Render <span class="shortcut">^r</span></li>
-                <li>Add Layer <span class="shortcut">[]</span></li>
-                <li>Add Property <span class="shortcut">[]</span></li>
+                <li>New with Hepler <span class="shortcut">[]</span></li>
+                <li>Insert Layer <span class="shortcut">[]</span></li>
+                <li>Insert Property <span class="shortcut">[]</span></li>
             </ul>
         </li>
     </ul>
     <div class="body">
         <div class="left-side">
             <textarea id="layers" placeholder="Enter your code here"></textarea>
+            <div>
+                <div class="title">Helper</div>
+            </div>
         </div>
         
         <canvas id="preview"></canvas>
     </div>
 
     <script src="./src/index.js"></script>
-    <script src="./src/layers.js"></script>
     <script src="./src/canvas.js"></script>
     <script src="./src/render.js"></script>
 </body>
