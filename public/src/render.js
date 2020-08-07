@@ -62,7 +62,7 @@
       code = code.split(/\:/g);
 
       let name = code[0];
-      let values = code[1].indexOf(",") > -1? code[1].split(","): code[1];
+      let values = code[1];
 
       return {
         type,

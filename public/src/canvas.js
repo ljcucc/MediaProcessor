@@ -59,15 +59,20 @@
   canvas.onmouseup = (handleMouseUp);
   canvas.onmouseleave = (handleMouseLeave);
 
+  // process parms
+  let p_parms = (code)=>code.indexOf(",") > -1? code.split(","): code
+
   window.canvas = {
     canvas,
     setup: {
       size: (list)=>{
+        list = p_parms(list);
         canvas.width = list[0];
         canvas.height = list[1]
       },
-      background: (list)=>{
-        
+      background: (code)=>{
+        ctx.fillStyle = code;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
     }
   }
