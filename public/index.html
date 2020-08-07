@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu">
-    </div>
+    <ul class="menu">
+        <li>
+            <button class="menu-btn">Files</button>
+            <ul class="menu-list">
+                <li>Open <span class="shortcut">^o</span></li>
+                <li>New <span class="shortcut">^n</span></li>
+                <li>Save <span class="shortcut">^s</span></li>
+            </ul>
+        </li>
+        <li>
+            <button class="menu-btn">Layers</button>
+            <ul class="menu-list">
+                <li>Open <span class="shortcut">^o</span></li>
+                <li>New <span class="shortcut">^n</span></li>
+                <li>Save <span class="shortcut">^s</span></li>
+            </ul>
+        </li>
+    </ul>
     <div class="body">
         <div class="left-side">
             <textarea id="layers" placeholder="Enter your code here"></textarea>
@@ -20,6 +36,5 @@
 
     <script src="./src/index.js"></script>
     <script src="./src/layers.js"></script>
-    <script src="./src/tabs.js"></script>
 </body>
 </html>
