@@ -208,7 +208,8 @@ a:hover{
 }
 
 .preview-container{
-  overflow:scroll;
+  overflow: scroll;
+  position:relative;
   box-sizing: border-box;
 
   height: calc(100vh - 100px);
