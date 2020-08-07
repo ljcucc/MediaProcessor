@@ -77,6 +77,9 @@ textarea{
   display: grid;
   grid-template-rows: 1fr minmax(100px, 20%);
   height: calc(100vh - 100px);
+
+  overflow-y: scroll;
+  box-sizing: border-box;
 }
 
 body{
@@ -162,8 +165,19 @@ body{
   color: white;
 }
 
-.shortcut{
+.menu-list>li>.shortcut{
   color: rgba(0, 0, 0, 0.35);
   float: right;
   margin-left: 32px;
+}
+
+.menu-list>li:hover>.shortcut{
+  color: rgba(255,255,255, 0.65);
+  float: right;
+  margin-left: 32px;
+}
+
+.title{
+  font-family: monospace;
+  font-weight: bold;
 }
