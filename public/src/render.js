@@ -7,19 +7,42 @@
 
   // Main Processing
 
-  let eval_level = (layers)=>{
+  let eval_level = (layers, current)=>{
+    let layer;
+
     for(let index in layers){
       let item = layers[index];
 
       if(item instanceof Array){
-        eval_level(item);
+        eval_level(item, layer);
         continue;
       }
 
       let parameters = (parms(item));
 
-      if(item.level == 0 && parameters.type == "property")
-        setup_canvas(parameters);
+      if(parameters.type == "property"){
+        if(item.level == 0)
+          setup_canvas(parameters);
+        else if(!!currnet){
+          draw_canvas(parameters);
+        }
+      } 
+
+      
+      
+      if(parameters.type == "layer"){
+        let splited = parameters.name.trim().split(":");
+        
+        if(splited.length != 2){
+          alert(`Synatx errror with layer: ${parameters.name}`);
+          return;
+        }
+
+        layer = {
+          name: splited[0],
+          type: splited[1]
+        };
+      }
     }
   }
 
@@ -41,6 +64,8 @@
       index: 0,
       level:0
     }));
+
+    console.log(result);
 
     eval_level(result);
 
