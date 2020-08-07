@@ -24,9 +24,11 @@
   }
 
   let setup_canvas = (parameter)=>{
-    console.log("setup_canvas")
-    if(parameter.name in canvas.setup){
-      canvas.setup[parameter.name] (parameter.values);
+    console.log("setup_canvas");
+    console.log(canvas.config);
+    if(parameter.name in canvas.config){
+      canvas.config[parameter.name] = (parameter.values);
+      canvas.refresh();
     }else{
       alert(`Canvas property '${parameter.name}' not found, can't be setup.`)
     }

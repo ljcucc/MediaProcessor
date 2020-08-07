@@ -89,7 +89,7 @@ body{
 }
 
 .menu{
-  border-top: 3px solid black;
+  border-top: 5px solid black;
   /* background: white; */
   height: 30px;
   
@@ -191,4 +191,29 @@ body{
 
 textarea{
   resize: none;
+}
+
+a{
+  color:black;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+.helper-container{
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.preview-container{
+  overflow:scroll;
+  box-sizing: border-box;
+
+  height: calc(100vh - 100px);
+}
+
+#preview{
+  transition:transform 0.15s;
 }

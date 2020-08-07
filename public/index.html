@@ -26,6 +26,13 @@
             </ul>
         </li>
         <li>
+            <button class="menu-btn">View</button>
+            <ul class="menu-list">
+                <li id="render">Zoom in<span class="shortcut">^+</span></li>
+                <li id="eval">Zoom out<span class="shortcut">^-</span></li>
+            </ul>
+        </li>
+        <li>
             <button class="menu-btn">Run</button>
             <ul class="menu-list">
                 <li id="render">Render <span class="shortcut">^R</span></li>
@@ -45,13 +52,15 @@
     <div class="body">
         <div class="left-side">
             <textarea id="layers" placeholder="Enter your code here"></textarea>
-            <div>
+            <div class="helper-container">
                 <div class="title">Helper</div>
                 <div class="mono" id="helper"></div>
             </div>
         </div>
         
-        <canvas id="preview"></canvas>
+        <div class="preview-container">
+            <canvas id="preview"></canvas>
+        </div>
     </div>
 
     <script src="./src/index.js"></script>

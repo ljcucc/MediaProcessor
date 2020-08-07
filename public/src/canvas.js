@@ -1,15 +1,23 @@
 (()=>{
   let canvas = document.querySelector("canvas");
-  let mousePressed = false;
+  let mousePressed = false, mouseCovered = false;
+  let scale = 1.0;
   let ctx = canvas.getContext("2d");
+
+  let configUpdate = false;
+
+  let config = {
+    size: [300, 300],
+    background: "white"
+  }
 
   // Basic functions
 
   let getMousePos = (e)=>{ 
     let rect = canvas.getBoundingClientRect();
     return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      x: (e.clientX - rect.left) / scale,
+      y: (e.clientY - rect.top) / scale
     };
   }
 
@@ -24,6 +32,23 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
+  let refresh = ()=>{
+    config.size = p_parms(config.size);
+    canvas.width = config.size[0];
+    canvas.height = config.size[1];
+
+    console.log(config.size)
+
+    runDefault(ctx);
+  }
+
+  let runDefault = (ctx)=>{
+    clearCanvas(ctx);
+
+    ctx.fillStyle = config.background;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
   // Program
 
   // Event handler
@@ -32,7 +57,7 @@
     let pos = (getMousePos(e));
 
     if(mousePressed){
-      clearCanvas(ctx);
+      runDefault(ctx);
       drawLine(ctx, pos.x, 0, pos.x, canvas.height);
       drawLine(ctx, 0, pos.y, canvas.width, pos.y);
     }
@@ -41,39 +66,53 @@
   let handleMousePressed = (e)=>{
     mousePressed = true;
     console.log("mouse pressed");
+
+    runDefault(ctx);
   }
 
   let handleMouseUp = (e)=>{
     mousePressed = false;
     console.log("mouse up");
-    clearCanvas(ctx);
+    
+    runDefault(ctx);
   }
 
   let handleMouseLeave = (e)=>{
-    clearCanvas(ctx);
+    runDefault(ctx);
+
     mousePressed = false;
+    mouseCovered = false;
+  };
+
+  let handleMouseEnter = (e)=>{
+    mouseCovered = true;
   }
 
   canvas.onmousemove = (handleMouse);
   canvas.onmousedown = (handleMousePressed);
   canvas.onmouseup = (handleMouseUp);
   canvas.onmouseleave = (handleMouseLeave);
+  canvas.onmouseenter = (handleMouseEnter);
+  window.addEventListener("keydown", e=>{
+    if(!mouseCovered) return;
+
+    if(e.key == "+"){
+      scale += 0.2;
+    }else if(e.key == "-"){
+      scale -= 0.2;
+    }
+
+    canvas.style.transform = `scale(${scale})`;
+  })
 
   // process parms
-  let p_parms = (code)=>code.indexOf(",") > -1? code.split(","): code
+  let p_parms = (code)=>code.indexOf(",") > -1? code.split(","): code;
+
+  refresh();
 
   window.canvas = {
     canvas,
-    setup: {
-      size: (list)=>{
-        list = p_parms(list);
-        canvas.width = list[0];
-        canvas.height = list[1]
-      },
-      background: (code)=>{
-        ctx.fillStyle = code;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-    }
+    config,
+    refresh
   }
 })();
