@@ -181,3 +181,14 @@ body{
   font-family: monospace;
   font-weight: bold;
 }
+
+.mono{
+  font-family: monospace;
+  padding:16px 0;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+textarea{
+  resize: none;
+}

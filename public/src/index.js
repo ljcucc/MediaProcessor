@@ -57,18 +57,29 @@
     // console.log(txtarea.value);
   }
 
-  txtarea.addEventListener("click", e=>{
+  let helperCheck = (text)=>!!(String(text).match(/(\-|\+)[\s\S]/g));
+  let getLineText = ()=>{
     let cursorPos = txtarea.selectionStart;
     let linePos = (txtarea.value.substring(0, cursorPos).match(/\n/g)?.length || 0 )
     let lineText = txtarea.value.split("\n")[linePos];
 
-    console.log(lineText)
+    return (lineText);
+  }
+
+  txtarea.addEventListener("click", e=>{
+    if(helperCheck(e.target.value)){
+      helper.activate(getLineText());
+    }
   })
   
   txtarea.addEventListener("keydown", e=>{
     if(e.key == "Tab"){
       e.preventDefault();
       auto_complete();
+
+      if(helperCheck(e.target.value)){
+        helper.activate(getLineText());
+      }
     }
     
     if(e.code == "Enter"){
