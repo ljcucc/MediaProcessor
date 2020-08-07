@@ -72,7 +72,7 @@ textarea{
 
 .left-side{
   padding: 8px;
-  border: 1.5px solid black;
+  /* border: 1.5px solid black; */
 
   display: grid;
   grid-template-rows: 1fr minmax(100px, 20%);
@@ -86,7 +86,68 @@ body{
 }
 
 .menu{
-  /* border-bottom: 1.5px solid black; */
-  background: white;
+  border-top: 3px solid black;
+  /* background: white; */
   height: 30px;
+  
+  display: flex;
+  flex-direction: row;
+  padding-left: 4px;
+
+  z-index: 100;
+
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+
+.menu>li{
+  float: left;
+  position: relative;
+  width:auto;
+}
+
+.menu-list{
+  list-style-type: none;
+  padding-left:0;
+  font-family: monospace;
+  position: absolute;
+  margin:0;
+
+  display: none;
+  background:white;
+
+  min-width:  fit-content;
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.menu-btn:hover ~ .menu-list{
+  display: block;
+}
+
+.menu-list:hover{
+  display: block;
+}
+
+.menu-list>*{
+  padding: 4px 8px;
+  cursor: pointer;
+
+  position: relative;
+
+  display: block;
+
+  white-space: nowrap;
+}
+
+.menu-list>*:hover{
+  background:black;
+  color: white;
+}
+
+.shortcut{
+  color: rgba(0, 0, 0, 0.35);
+  float: right;
+  margin-left: 32px;
 }
