@@ -9,12 +9,14 @@
 
   let eval_level = (layers, current)=>{
     let layer;
+    let property = [];
 
     for(let index in layers){
       let item = layers[index];
 
       if(item instanceof Array){
         eval_level(item, layer);
+        layer = null;
         continue;
       }
 
@@ -23,12 +25,10 @@
       if(parameters.type == "property"){
         if(item.level == 0)
           setup_canvas(parameters);
-        else if(!!currnet){
-          draw_canvas(parameters);
+        else if(!!current){
+          property.push(parameters);
         }
-      } 
-
-      
+      }
       
       if(parameters.type == "layer"){
         let splited = parameters.name.trim().split(":");
@@ -44,6 +44,8 @@
         };
       }
     }
+
+    draw_canvas(current, property);
   }
 
   let setup_canvas = (parameter)=>{
@@ -55,6 +57,11 @@
     }else{
       alert(`Canvas property '${parameter.name}' not found, can't be setup.`)
     }
+  }
+
+  let draw_canvas = (layer, property)=>{
+    if(!layer) return;
+    console.log(layer, property);
   }
 
   let eval = (string)=>{
@@ -100,7 +107,7 @@
   }
 
   let render = (layers)=>{
-    if(!cache) alert("Eval cache is null, try eval before render or run [Eval & Render]")
+    // if(!cache) alert("Eval cache is null, try eval before render or run [Eval & Render]")
   }
 
   let parse = (context)=>{
