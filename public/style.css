@@ -132,12 +132,12 @@ body{
   content:"   ";
 }
 
-.menu-list:hover~.menu-btn{
+.menu>li:hover>.menu-btn{
   background: black;
   color:white;
 }
 
-.menu-btn{
+.menu>li>.menu-btn{
   padding-left: 8px;
   padding-right: 8px;
 }
