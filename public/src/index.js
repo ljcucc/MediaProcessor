@@ -58,14 +58,14 @@
     // console.log(txtarea.value);
   } 
   
-  renderBtn.addEventListener("click", e=>{
-    let layersCode = document.querySelector("#layers");
-    // console.log(layers.parse({
-    //   string: layersCode.value,
-    //   index: 0,
-    //   level:0
-    // }));
-  });
+  // renderBtn.addEventListener("click", e=>{
+  //   let layersCode = document.querySelector("#layers");
+  //   // console.log(layers.parse({
+  //   //   string: layersCode.value,
+  //   //   index: 0,
+  //   //   level:0
+  //   // }));
+  // });
 
   txtarea.addEventListener("click", e=>{
     let cursorPos = txtarea.selectionStart;
