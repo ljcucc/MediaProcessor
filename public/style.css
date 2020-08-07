@@ -92,19 +92,17 @@ body{
   
   display: flex;
   flex-direction: row;
-  padding-left: 4px;
-
-  z-index: 100;
 
   margin:0;
   padding:0;
+  padding-left: 16px;
+
+  z-index: 100;
+
   list-style-type: none;
 }
 
 .menu>li{
-  float: left;
-  position: relative;
-  width:auto;
 }
 
 .menu-list{
@@ -126,6 +124,24 @@ body{
   display: block;
 }
 
+.menu-btn:before{
+  content:"   ";
+}
+
+.menu-btn::after{
+  content:"   ";
+}
+
+.menu-list:hover~.menu-btn{
+  background: black;
+  color:white;
+}
+
+.menu-btn{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 .menu-list:hover{
   display: block;
 }
@@ -134,7 +150,7 @@ body{
   padding: 4px 8px;
   cursor: pointer;
 
-  position: relative;
+  /* position: relative; */
 
   display: block;
 
