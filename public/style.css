@@ -182,6 +182,11 @@ body{
   font-weight: bold;
 }
 
+h1.title.helper{
+  font-size: 16px;
+  margin: 8px 0;
+}
+
 .mono{
   font-family: monospace;
   padding:16px 0;
