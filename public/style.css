@@ -213,8 +213,14 @@ a:hover{
   box-sizing: border-box;
 
   height: calc(100vh - 100px);
+
+  display: grid;
+    place-items: center;
 }
 
 #preview{
   transition:transform 0.15s;
+  display: block;
+  transform-origin:0 0;
+  margin: 32px; 
 }
