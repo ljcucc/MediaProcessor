@@ -111,7 +111,7 @@
   }
 
   let parse = (context)=>{
-    let strings = String(context?.string).split("\n");
+    let strings = String(context?.string).replace(/;[\S ]+\n/g).split("\n");
     let result = [];
     let level = Number(context?.level);
 
