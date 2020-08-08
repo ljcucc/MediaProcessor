@@ -14,8 +14,9 @@
     `,
     "background":`# Porperty:
     background: [style]
-
-    background is an property that setting the background style of the canvas.
+    
+    set background color.
+    [style] reference: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors
     `
   };
 
