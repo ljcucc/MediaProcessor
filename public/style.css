@@ -183,7 +183,7 @@ body{
 }
 
 h1.title.helper{
-  font-size: 16px;
+  font-size: 14px;
   margin: 8px 0;
 }
 
@@ -228,4 +228,9 @@ a:hover{
   display: block;
   transform-origin:0 0;
   margin: 32px; 
+}
+
+.i{
+  opacity: 0.35;
+  font-weight: normal;
 }

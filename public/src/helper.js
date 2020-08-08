@@ -4,14 +4,15 @@
 
   const database = {
     "::welcome":`# Welcome
-      Welcome to use **MeidaProcessor**.find more help and resources on https://ljcucc.github.io/docs/media-processor/index.html
+      Find more help and resources on https://ljcucc.github.io/docs/media-processor/index.html
 
-      Press [Tab] key while you typing to get more help.
+      Press [Tab] or Click the line in the editor to check more help at here.
 
+# Canvas config: * (Click and add to editor) *
+      - background: [style]  * (canvas background) *
+      - size: width, height  * (canvas size) *
     `,
-    "background":`
-
-    Porperty:
+    "background":`# Porperty:
     background: [style]
 
     background is an property that setting the background style of the canvas.
@@ -20,7 +21,7 @@
 
   let getHelperDocs = (id)=>{
     let URLRegex = /(http|https):\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
-    let titleRegex = /^(#{1,6}\s+[\S]+)/m;
+    let titleRegex = /^(#{1,6}\s+[\S ]+)/gm;
 
     let markdown = database[id];
 
@@ -29,6 +30,7 @@
     markdown = (markdown.match(URLRegex) || []).reduce((acc, cur)=>acc.replace(cur, `<a target="_blank" href="${cur}">${cur}</a>`), markdown);
     markdown = (markdown.match(titleRegex) || []).reduce((acc, cur)=>acc.replace(cur, `<h${cur.trim().lastIndexOf("#")+1} class="title helper">${cur.replace("#","")}</h${cur.trim().lastIndexOf("#")+1}>`), markdown)
     markdown = (markdown.match(/\*\*(.*?)\*\*/gm) || []).reduce((acc, cur)=>acc.replace(cur, `<b>${cur.substring(2, cur.length-2)}</b>`), markdown)
+    markdown = (markdown.match(/\*\ (.*?)\ \*/gm) || []).reduce((acc, cur)=>acc.replace(cur, `<span class="i">${cur.substring(2, cur.length-2)}</span>`), markdown)
 
     markdown = markdown.replace(/\n/g, "<br>")+"\n";
     console.log(markdown);
