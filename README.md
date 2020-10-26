@@ -23,3 +23,9 @@ This is an example of layers code:
 
 ## Contribution
 find more doucment at [here](https://github.com/ljcucc/MediaProcessor/wiki/Contribution-%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB), pull request is welcome! 😄
+
+### Build this project
+run:
+```shell
+make build
+```
