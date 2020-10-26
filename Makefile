@@ -4,6 +4,6 @@ git:
 	git push
 
 build:
-	gcc -o ./src/main.c ./dist/main.o
+	gcc -o ./dist/main.o ./src/main.c
 	chmod +x ./dist/main.o
 	./main.o
