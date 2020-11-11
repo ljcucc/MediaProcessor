@@ -191,7 +191,7 @@ h1.title.helper{
   font-family: monospace;
   padding:16px 0;
   box-sizing: border-box;
-  overflow-y: scroll;
+  //overflow-y: scroll;
 }
 
 textarea{
