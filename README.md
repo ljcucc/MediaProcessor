@@ -1,7 +1,7 @@
 🚧 (Under developing... pull request is welcome!)
 # MediaProcessor (Low Power Mode)
 
-![MediaProcessorLogo](https://user-images.githubusercontent.com/22980191/88693587-0de67b00-d132-11ea-8c0a-bb2ad6c019d6.png)
+![MediaProcessorLogo](https://user-images.githubusercontent.com/22980191/99205579-ef48e480-27f3-11eb-8588-d9c4a2f572d8.jpeg)
 *(Logo is temporary, icon from [material icon](https://material.io/icons))*
 
 # Low Power Mode
